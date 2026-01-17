@@ -1,23 +1,34 @@
-# Netlify Configuration
-# https://docs.netlify.com/configure-builds/file-based-configuration/
+# ===========================================
+# SENTINEL Tecnologia - Netlify Configuration
+# ===========================================
+# Deploy URL: https://funny-rolypoly-6326c2.netlify.app/
+# GitHub Pages: https://rsoftconsultoria.github.io/sentinel-tec/
 
 [build]
-  # Diretório de publicação (raiz do projeto)
   publish = "."
+  command = ""
 
-# Headers de segurança para todas as páginas
+# ===========================================
+# SECURITY HEADERS (Enterprise-grade)
+# ===========================================
 [[headers]]
   for = "/*"
   [headers.values]
+    # Security Headers
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://www.google-analytics.com; frame-ancestors 'none'; form-action 'self' https://formspree.io; base-uri 'self'"
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://www.google-analytics.com; frame-ancestors 'none';"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # Cache Control for HTML
+    Cache-Control = "public, max-age=0, must-revalidate"
 
-# Cache para assets estáticos
+# ===========================================
+# ASSET CACHING (Long-term for performance)
+# ===========================================
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -27,11 +38,19 @@
   for = "*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "text/css; charset=utf-8"
 
 [[headers]]
   for = "*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "application/javascript; charset=utf-8"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "image/svg+xml"
 
 [[headers]]
   for = "*.png"
@@ -39,17 +58,84 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "*.jpg"
+  for = "*.webp"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "*.svg"
+  for = "*.ico"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Redirects (opcional - para URLs limpas)
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# ===========================================
+# SEO FILES
+# ===========================================
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json; charset=utf-8"
+    Cache-Control = "public, max-age=86400"
+
+# ===========================================
+# REDIRECTS
+# ===========================================
+# WWW to non-WWW (when custom domain is configured)
+# [[redirects]]
+#   from = "https://www.sentineltecnologia.com.br/*"
+#   to = "https://sentineltecnologia.com.br/:splat"
+#   status = 301
+#   force = true
+
+# Old URLs redirects (add as needed)
+# [[redirects]]
+#   from = "/old-page"
+#   to = "/new-page"
+#   status = 301
+
+# SPA fallback for future pages
 [[redirects]]
-  from = "/index"
-  to = "/"
-  status = 301
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# ===========================================
+# PLUGINS
+# ===========================================
+# Minification is handled automatically by Netlify
+# Images are served with automatic optimization
+
+# ===========================================
+# EDGE FUNCTIONS (if needed in future)
+# ===========================================
+# [functions]
+#   directory = "netlify/functions"
+
+# ===========================================
+# DEPLOY CONTEXTS
+# ===========================================
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "preview" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "staging" }

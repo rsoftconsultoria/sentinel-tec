@@ -1,9 +1,34 @@
+# SENTINEL Tecnologia - Robots.txt
+# https://rsoftconsultoria.github.io/sentinel-tec/
+
+# Allow all search engines
 User-agent: *
 Allow: /
 
-# Bloquear pastas de sistema
+# Disallow admin and private directories
 Disallow: /.git/
 Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.md$
 
-# Sitemap
-Sitemap: https://sentineltecnologia.com.br/sitemap.xml
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://rsoftconsultoria.github.io/sentinel-tec/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+
+# GPTBot (OpenAI)
+User-agent: GPTBot
+Allow: /
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
