@@ -1,0 +1,311 @@
+/* =========================================
+   SENTINEL Tecnologia - Página Sobre Nós
+   Estilos específicos para a página sobre
+   ========================================= */
+
+/* Sobre Hero Section */
+.sobre-hero {
+    position: relative;
+    padding: calc(var(--header-height) + var(--spacing-20)) 0 var(--spacing-20);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sobre-hero__content {
+    max-width: 800px;
+}
+
+.sobre-hero__title {
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-8);
+    letter-spacing: -0.02em;
+}
+
+.sobre-hero__description {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-6);
+}
+
+.sobre-hero__description strong {
+    color: var(--color-text-primary);
+}
+
+.sobre-hero__quote {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary-300);
+    padding-left: var(--spacing-6);
+    border-left: 3px solid var(--color-primary-500);
+    margin-top: var(--spacing-8);
+}
+
+/* Sobre Sections */
+.sobre-section {
+    padding: var(--spacing-24) 0;
+    position: relative;
+}
+
+.sobre-section--alt {
+    background: var(--color-bg-secondary);
+}
+
+.sobre-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border-accent), transparent);
+}
+
+.sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-16);
+    align-items: center;
+}
+
+.sobre-grid--reverse {
+    direction: rtl;
+}
+
+.sobre-grid--reverse>* {
+    direction: ltr;
+}
+
+.sobre-content {
+    max-width: 560px;
+}
+
+.sobre-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-8);
+}
+
+.sobre-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.sobre-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-4);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.sobre-list svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary-400);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.sobre-list span {
+    flex: 1;
+}
+
+/* Sobre Visual - Stat Cards */
+.sobre-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-card-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    width: 100%;
+    max-width: 400px;
+}
+
+.sobre-stat-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    padding: var(--spacing-6);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+}
+
+.sobre-stat-card:hover {
+    border-color: var(--color-border-accent);
+    transform: translateX(10px);
+}
+
+.sobre-stat-card--highlight {
+    background: linear-gradient(145deg, rgba(30, 58, 92, 0.3) 0%, rgba(30, 58, 92, 0.1) 100%);
+    border-color: var(--color-border-accent);
+}
+
+.sobre-stat-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(30, 58, 92, 0.2);
+    border-radius: var(--radius-lg);
+    flex-shrink: 0;
+}
+
+.sobre-stat-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-primary-400);
+}
+
+.sobre-stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.sobre-stat-number {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sobre-stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+}
+
+/* Atuação Cards */
+.atuacao-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    width: 100%;
+    max-width: 400px;
+}
+
+.atuacao-card {
+    padding: var(--spacing-6);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.atuacao-card:hover {
+    border-color: var(--color-border-accent);
+    transform: translateX(-10px);
+}
+
+.atuacao-card__number {
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: rgba(30, 58, 92, 0.3);
+}
+
+.atuacao-card h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin-bottom: var(--spacing-2);
+    color: var(--color-text-primary);
+}
+
+.atuacao-card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Transformação Section */
+.sobre-transformacao {
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+}
+
+.transformacao-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.transformacao-text {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-10);
+}
+
+.transformacao-cta {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-4);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .sobre-hero__title {
+        font-size: var(--font-size-4xl);
+    }
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-10);
+    }
+
+    .sobre-grid--reverse {
+        direction: ltr;
+    }
+
+    .sobre-content {
+        max-width: 100%;
+    }
+
+    .sobre-card-stack,
+    .atuacao-cards {
+        max-width: 100%;
+    }
+
+    .sobre-stat-card:hover,
+    .atuacao-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+@media (max-width: 768px) {
+    .sobre-hero {
+        min-height: auto;
+        padding: calc(var(--header-height) + var(--spacing-12)) 0 var(--spacing-12);
+    }
+
+    .sobre-hero__title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .sobre-section {
+        padding: var(--spacing-16) 0;
+    }
+
+    .transformacao-cta {
+        flex-direction: column;
+    }
+
+    .transformacao-cta .btn {
+        width: 100%;
+    }
+}

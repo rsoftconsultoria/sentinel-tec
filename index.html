@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>SENTINEL Tecnologia | Consultoria TI, Azure, AWS, Microsoft 365 e Backup</title>
+    <meta name="description"
+        content="Consultoria especializada em TI para empresas. Soluções em Microsoft 365, Azure, AWS, Backup em Nuvem, SOC, FinOps e Fábrica de Software. Fale com especialistas.">
+    <meta name="keywords"
+        content="consultoria TI, Microsoft 365 empresas, migração Azure, AWS Brasil, backup em nuvem empresarial, SOC monitoramento, FinOps, desenvolvimento software, SENTINEL Tecnologia">
+    <meta name="author" content="SENTINEL Tecnologia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sentineltecnologia.com.br/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sentineltecnologia.com.br/">
+    <meta property="og:title" content="SENTINEL Tecnologia | Consultoria TI para Empresas">
+    <meta property="og:description"
+        content="Transforme sua TI com especialistas em Microsoft 365, Azure, AWS, Backup e SOC. Soluções completas para sua empresa.">
+    <meta property="og:image" content="https://sentineltecnologia.com.br/og-image.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="SENTINEL Tecnologia">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SENTINEL Tecnologia | Consultoria TI para Empresas">
+    <meta name="twitter:description"
+        content="Transforme sua TI com especialistas em Microsoft 365, Azure, AWS, Backup e SOC.">
+    <meta name="twitter:image" content="https://sentineltecnologia.com.br/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://formspree.io">
+
+    <!-- Fonts with display swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SENTINEL Tecnologia",
+        "alternateName": "SENTINEL",
+        "description": "Consultoria em TI especializada em Microsoft 365, Azure, AWS, Backup em Nuvem, SOC e FinOps para empresas",
+        "url": "https://sentineltecnologia.com.br",
+        "logo": "https://sentineltecnologia.com.br/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "areaServed": "BR",
+            "availableLanguage": "Portuguese"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/sousarafael/"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "BR"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SENTINEL Tecnologia",
+        "url": "https://sentineltecnologia.com.br"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Consultoria em TI",
+        "provider": {
+            "@type": "Organization",
+            "name": "SENTINEL Tecnologia"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços de TI",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Microsoft 365"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Microsoft Azure"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Amazon AWS"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Backup em Nuvem"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SOC - Security Operations Center"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "FinOps"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fábrica de Software"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoria Estratégica"}}
+            ]
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">SENTINEL</span>
+                <span class="logo-sub">Tecnologia</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active">Início</a>
+                    </li>
+                    <li class="nav__item nav__dropdown">
+                        <a href="#servicos" class="nav__link">Serviços <span class="dropdown-arrow">▾</span></a>
+                        <ul class="dropdown__menu">
+                            <li><a href="#microsoft">Microsoft</a></li>
+                            <li><a href="#azure">Azure</a></li>
+                            <li><a href="#aws">AWS</a></li>
+                            <li><a href="#backup">Backup</a></li>
+                            <li><a href="#soc">SOC</a></li>
+                            <li><a href="#finops">FinOps</a></li>
+                            <li><a href="#fabrica">Fábrica de Software</a></li>
+                            <li><a href="#consultoria">Consultoria</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item nav__dropdown">
+                        <a href="sobre.html" class="nav__link">Sobre Nós <span class="dropdown-arrow">▾</span></a>
+                        <ul class="dropdown__menu">
+                            <li><a href="sobre.html#quem-somos">Quem Somos</a></li>
+                            <li><a href="sobre.html#como-atuamos">Como Atuamos</a></li>
+                            <li><a href="#expertises">Nossas Expertises</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#suporte" class="nav__link">Suporte</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contato" class="nav__link">Contato</a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="#contato" class="nav__cta btn btn--primary">Fale Conosco</a>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__glow hero__glow--left"></div>
+        <div class="hero__glow hero__glow--right"></div>
+        <div class="hero__particles" id="particles"></div>
+
+        <div class="container hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    Tecnologia que<br>
+                    <span class="gradient-text">Impulsiona Resultados</span>
+                </h1>
+                <p class="hero__description">
+                    Gestão completa de TI, soluções em nuvem, backup inteligente e consultoria estratégica.
+                    Transforme sua infraestrutura em vantagem competitiva com especialistas certificados.
+                </p>
+                <div class="hero__buttons">
+                    <a href="#contato" class="btn btn--primary btn--lg">
+                        <span>Fale Conosco</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#servicos" class="btn btn--outline btn--lg">
+                        <span>Explorar Serviços</span>
+                    </a>
+                </div>
+                <div class="hero__partners">
+                    <span class="partners-label">Parceiros Oficiais</span>
+                    <div class="partners-logos">
+                        <div class="partner-logo" title="Microsoft 365">
+                            <img src="assets/microsoft-365.png" alt="Microsoft 365 Partner">
+                        </div>
+                        <div class="partner-logo" title="Microsoft Azure">
+                            <img src="assets/azure.png" alt="Microsoft Azure Partner">
+                        </div>
+                        <div class="partner-logo" title="Amazon Web Services">
+                            <img src="assets/aws.png" alt="AWS Partner">
+                        </div>
+                        <div class="partner-logo" title="Acronis">
+                            <img src="assets/acronis.png" alt="Acronis Partner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__scroll">
+            <a href="#servicos" class="scroll-indicator">
+                <span class="scroll-text">Scroll</span>
+                <div class="scroll-line"></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Nossos Serviços</span>
+                <h2 class="section__title">Serviços que <span class="gradient-text">Transformam</span></h2>
+                <p class="section__subtitle">Soluções integradas para elevar sua infraestrutura de TI ao próximo nível
+                </p>
+            </div>
+
+            <div class="services__grid">
+                <!-- Microsoft -->
+                <article class="service-card" id="microsoft">
+                    <div class="service-card__icon service-card__icon--img">
+                        <img src="assets/microsoft-365.png" alt="Microsoft 365">
+                    </div>
+                    <div class="service-card__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Microsoft 365 & Licenciamento</h3>
+                    <p class="service-card__description">Licenciamento completo de produtos Microsoft com consultoria
+                        especializada para otimização de custos e produtividade.</p>
+                    <a href="#contato" class="service-card__link">Saiba mais</a>
+                </article>
+
+                <!-- Azure -->
+                <article class="service-card" id="azure">
+                    <div class="service-card__icon service-card__icon--img">
+                        <img src="assets/azure.png" alt="Microsoft Azure">
+                    </div>
+                    <div class="service-card__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Microsoft Azure</h3>
+                    <p class="service-card__description">Infraestrutura na nuvem Azure seguindo as melhores práticas de
+                        segurança, performance e otimização de custos.</p>
+                    <a href="#contato" class="service-card__link">Saiba mais</a>
+                </article>
+
+                <!-- AWS -->
+                <article class="service-card" id="aws">
+                    <div class="service-card__icon service-card__icon--img">
+                        <img src="assets/aws.png" alt="Amazon Web Services">
+                    </div>
+                    <div class="service-card__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Amazon Web Services</h3>
+                    <p class="service-card__description">Soluções completas em AWS com arquitetura well-architected,
+                        migração e gestão de ambientes cloud.</p>
+                    <a href="#contato" class="service-card__link">Saiba mais</a>
+                </article>
+
+                <!-- Backup em Nuvem -->
+                <article class="service-card" id="backup">
+                    <div class="service-card__icon service-card__icon--backup">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="17 8 12 3 7 8" />
+                            <line x1="12" y1="3" x2="12" y2="15" />
+                        </svg>
+                    </div>
+                    <div class="service-card__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Backup em Nuvem</h3>
+                    <p class="service-card__description">Proteja, recupere e armazene com segurança os dados do seu
+                        negócio. Backup automático com restauração rápida.</p>
+                    <a href="#contato" class="service-card__link">Saiba mais</a>
+                </article>
+
+                <!-- SOC -->
+                <article class="service-card" id="soc">
+                    <div class="service-card__icon service-card__icon--soc">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <div class="service-card__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Security Operations Center</h3>
+                    <p class="service-card__description">Monitoramento 24/7 de segurança com detecção e resposta a
+                        incidentes em tempo real para proteção completa.</p>
+                    <a href="#contato" class="service-card__link">Saiba mais</a>
+                </article>
+
+                <!-- FinOps -->
+                <article class="service-card" id="finops">
+                    <div class="service-card__icon service-card__icon--finops">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <div class="service-card__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">FinOps</h3>
+                    <p class="service-card__description">Otimize seus custos em nuvem com gestão financeira
+                        especializada e eficiência operacional comprovada.</p>
+                    <a href="#contato" class="service-card__link">Saiba mais</a>
+                </article>
+
+                <!-- Fábrica de Software -->
+                <article class="service-card" id="fabrica">
+                    <div class="service-card__icon service-card__icon--fabrica">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <div class="service-card__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Fábrica de Software</h3>
+                    <p class="service-card__description">Desenvolvimento de sistemas customizados com metodologias
+                        ágeis, do planejamento à entrega.</p>
+                    <a href="#contato" class="service-card__link">Saiba mais</a>
+                </article>
+
+                <!-- Consultoria -->
+                <article class="service-card" id="consultoria">
+                    <div class="service-card__icon service-card__icon--consultoria">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                        </svg>
+                    </div>
+                    <div class="service-card__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Consultoria Estratégica</h3>
+                    <p class="service-card__description">Análise e planejamento estratégico de TI para alinhar
+                        tecnologia aos objetivos do seu negócio.</p>
+                    <a href="#contato" class="service-card__link">Saiba mais</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__content">
+                    <span class="section__tag">Sobre Nós</span>
+                    <h2 class="section__title">Quem é a <span class="gradient-text">SENTINEL</span></h2>
+                    <p class="about__text">
+                        A <strong>SENTINEL Tecnologia</strong> é especialista em soluções de TI empresarial,
+                        oferecendo serviços completos em cloud computing, segurança cibernética, backup,
+                        licenciamento de software e desenvolvimento de sistemas.
+                    </p>
+                    <p class="about__text">
+                        Nossa missão é transformar a infraestrutura de TI dos nossos clientes em uma
+                        vantagem competitiva, com soluções inovadoras e atendimento personalizado.
+                    </p>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <span class="stat__number">100+</span>
+                            <span class="stat__label">Clientes Atendidos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">15+</span>
+                            <span class="stat__label">Anos de Experiência</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">24/7</span>
+                            <span class="stat__label">Suporte Técnico</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__visual">
+                    <div class="about__card">
+                        <div class="about__card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3>Segurança Garantida</h3>
+                        <p>Proteção de dados e sistemas com as melhores práticas do mercado</p>
+                    </div>
+                    <div class="about__card about__card--highlight">
+                        <div class="about__card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <h3>Suporte Ágil</h3>
+                        <p>Resposta rápida e eficiente para todas as suas demandas</p>
+                    </div>
+                    <div class="about__card">
+                        <div class="about__card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <h3>Certificações</h3>
+                        <p>Equipe certificada pelos principais players do mercado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertises Section -->
+    <section class="expertises" id="expertises">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Nossas Expertises</span>
+                <h2 class="section__title">Tecnologias que <span class="gradient-text">Dominamos</span></h2>
+            </div>
+            <div class="expertises__grid">
+                <div class="expertise-item">
+                    <div class="expertise-item__icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M0 0h11.377v11.377H0zm12.623 0H24v11.377H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623z" />
+                        </svg>
+                    </div>
+                    <span>Microsoft Partner</span>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-item__text">Azure Solutions</span>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-item__text">AWS Partner</span>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-item__text">Acronis Partner</span>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-item__text">DevOps & SRE</span>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-item__text">Cyber Security</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contato">
+        <div class="contact__glow"></div>
+        <div class="container">
+            <div class="contact__grid">
+                <div class="contact__info">
+                    <span class="section__tag">Vamos Conversar</span>
+                    <h2 class="section__title">Vamos Conversar <span class="gradient-text">Sobre Sua TI</span></h2>
+                    <p class="contact__description">
+                        Preencha o formulário e um de nossos especialistas entrará em contato
+                        para entender suas necessidades e apresentar a melhor solução.
+                    </p>
+                    <ul class="contact__benefits">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Resposta rápida</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Análise sem compromisso</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span>Atendimento personalizado</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact__form-wrapper">
+                    <form class="contact__form" id="contact-form" action="https://formspree.io/f/xbdddowv"
+                        method="POST">
+                        <input type="hidden" name="_subject" value="Novo Lead - SENTINEL Tecnologia">
+                        <input type="hidden" name="_next" value="#contato">
+                        <h3 class="contact__form-title">Entre em Contato</h3>
+                        <p class="contact__form-subtitle">Respeitamos o seu tempo e a sua caixa de e-mail. Não enviamos
+                            spam ou e-mails indesejados.</p>
+
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail Corporativo</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Empresa</label>
+                            <input type="text" id="company" name="company" placeholder="Nome da sua empresa" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Serviço de Interesse</label>
+                            <select id="service" name="service" required>
+                                <option value="">Selecione um serviço</option>
+                                <option value="microsoft">Microsoft 365 & Licenciamento</option>
+                                <option value="azure">Microsoft Azure</option>
+                                <option value="aws">Amazon Web Services (AWS)</option>
+                                <option value="acronis">Backup Acronis</option>
+                                <option value="soc">SOC - Security Operations</option>
+                                <option value="finops">FinOps</option>
+                                <option value="fabrica">Fábrica de Software</option>
+                                <option value="consultoria">Consultoria TI</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--full">
+                            <span>Enviar Mensagem</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">
+                        <span class="logo-icon">🛡️</span>
+                        <span class="logo-text">SENTINEL</span>
+                        <span class="logo-sub">Tecnologia</span>
+                    </a>
+                    <p class="footer__tagline">Soluções completas em tecnologia da informação para sua empresa crescer
+                        com segurança e eficiência.</p>
+                    <div class="footer__social">
+                        <a href="https://www.linkedin.com/in/sousarafael/" class="social-link" aria-label="LinkedIn"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-3.37-4-3.12-4 0v5.6h-3v-11h3v1.76c1.4-2.59 7-2.78 7 2.48v6.76z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07m0-2.16c-3.26 0-3.67.01-4.95.07-1.28.06-2.15.26-2.91.56-.79.31-1.46.72-2.13 1.38-.67.67-1.08 1.34-1.38 2.13-.3.77-.5 1.64-.56 2.91-.06 1.28-.07 1.69-.07 4.95s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.77.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13-.67-.67-1.34-1.08-2.13-1.38-.77-.3-1.64-.5-2.91-.56-1.28-.06-1.69-.07-4.95-.07zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16s2.76 6.16 6.16 6.16 6.16-2.76 6.16-6.16-2.76-6.16-6.16-6.16zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.84-10.4c0 .8-.64 1.44-1.44 1.44s-1.44-.64-1.44-1.44.64-1.44 1.44-1.44 1.44.64 1.44 1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__links">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#microsoft">Microsoft 365</a></li>
+                        <li><a href="#azure">Microsoft Azure</a></li>
+                        <li><a href="#aws">Amazon AWS</a></li>
+                        <li><a href="#backup">Backup em Nuvem</a></li>
+                        <li><a href="#soc">SOC</a></li>
+                        <li><a href="#finops">FinOps</a></li>
+                        <li><a href="#fabrica">Fábrica de Software</a></li>
+                        <li><a href="#consultoria">Consultoria</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#sobre">Quem Somos</a></li>
+                        <li><a href="#expertises">Nossas Expertises</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="#contato">Fale Conosco</a></li>
+                        <li><a href="https://www.linkedin.com/in/sousarafael/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2026 SENTINEL Tecnologia. Todos os direitos reservados.</p>
+                <div class="footer__bottom-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5521994559564?text=Olá! Vim pelo site SENTINEL e gostaria de saber mais sobre os serviços."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contato via WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

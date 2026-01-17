@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquear pastas de sistema
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://sentineltecnologia.com.br/sitemap.xml
