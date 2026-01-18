@@ -951,6 +951,57 @@
         </svg>
     </a>
 
+    <!-- Tawk.to Chatbot - Atendimento 24/7 -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/PROPERTY_ID/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+
+        // Auto-trigger após 30 segundos
+        Tawk_API.onLoad = function () {
+            setTimeout(function () {
+                if (Tawk_API.isChatHidden && !Tawk_API.isChatHidden()) {
+                    // Chat já visível
+                }
+            }, 30000);
+        };
+
+        // Rastrear página de interesse
+        Tawk_API.onChatStarted = function () {
+            var page = window.location.pathname;
+            if (page.includes('microsoft-365')) {
+                Tawk_API.addTags(['Microsoft 365', 'Licenciamento']);
+            } else if (page.includes('azure')) {
+                Tawk_API.addTags(['Azure', 'FinOps', 'Cloud']);
+            } else if (page.includes('fatura')) {
+                Tawk_API.addTags(['Otimização', 'Custos', 'Lead Quente']);
+            }
+        };
+    </script>
+
+    <!-- Google Analytics (substitua G-XXXXXXXXXX pelo seu ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+
+        // Rastrear conversões de formulário
+        document.getElementById('contact-form').addEventListener('submit', function () {
+            gtag('event', 'generate_lead', {
+                'event_category': 'Contact',
+                'event_label': document.getElementById('service').value
+            });
+        });
+    </script>
+
     <!-- Scripts -->
     <script src="script.js"></script>
 </body>

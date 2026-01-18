@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Cover - SENTINEL Tecnologia (4200x700)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a2e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .instructions {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .instructions h2 {
+            color: #0a0f1c;
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #333;
+        }
+
+        .instructions li {
+            margin: 8px 0;
+        }
+
+        .instructions code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Container da capa - exatamente 4200x700 */
+        .cover-container {
+            width: 4200px;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0f1c 0%, #0d1b2a 40%, #1b3a5f 100%);
+            border: 2px solid #00d4ff;
+        }
+
+        /* Grid de circuitos tech no fundo */
+        .circuit-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            background-image:
+                linear-gradient(90deg, #00d4ff 1px, transparent 1px),
+                linear-gradient(180deg, #00d4ff 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+
+        /* Linhas de conexão animadas */
+        .connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+        }
+
+        .line-1 {
+            top: 150px;
+            left: 0;
+            width: 800px;
+        }
+
+        .line-2 {
+            top: 300px;
+            left: 200px;
+            width: 600px;
+        }
+
+        .line-3 {
+            top: 450px;
+            left: 100px;
+            width: 500px;
+        }
+
+        .line-4 {
+            top: 550px;
+            left: 300px;
+            width: 400px;
+        }
+
+        /* Pontos de luz */
+        .glow-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff;
+        }
+
+        .dot-1 {
+            top: 145px;
+            left: 800px;
+        }
+
+        .dot-2 {
+            top: 295px;
+            left: 800px;
+        }
+
+        .dot-3 {
+            top: 445px;
+            left: 600px;
+        }
+
+        .dot-4 {
+            top: 545px;
+            left: 700px;
+        }
+
+        .dot-5 {
+            top: 200px;
+            left: 50px;
+        }
+
+        .dot-6 {
+            top: 400px;
+            left: 150px;
+        }
+
+        /* Área do logo (esquerda - vazia para o logo do LinkedIn) */
+        .logo-area {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400px;
+            height: 100%;
+            /* Área reservada para onde o logo aparece no LinkedIn */
+        }
+
+        /* Conteúdo principal - centro/direita */
+        .main-content {
+            position: absolute;
+            right: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: right;
+            z-index: 10;
+        }
+
+        .tagline {
+            font-size: 72px;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .services {
+            font-size: 42px;
+            font-weight: 600;
+            color: #00d4ff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 36px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        /* Ícones de tecnologia */
+        .tech-icons {
+            position: absolute;
+            right: 200px;
+            top: 80px;
+            display: flex;
+            gap: 40px;
+            z-index: 10;
+        }
+
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(0, 212, 255, 0.5);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Escudo grande decorativo */
+        .shield-decoration {
+            position: absolute;
+            left: 600px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 450px;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .shield-decoration svg {
+            width: 100%;
+            height: 100%;
+            fill: #00d4ff;
+        }
+
+        /* Gradiente lateral */
+        .side-gradient {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(270deg, rgba(0, 212, 255, 0.2) 0%, transparent 100%);
+        }
+
+        /* Barra inferior */
+        .bottom-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg,
+                    #00d4ff 0%,
+                    #0066cc 25%,
+                    #ff6b00 50%,
+                    #00d4ff 75%,
+                    #0066cc 100%);
+        }
+
+        /* Badge de parceiro */
+        .partner-badges {
+            position: absolute;
+            left: 500px;
+            bottom: 80px;
+            display: flex;
+            gap: 30px;
+            z-index: 10;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px 24px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Efeitos de brilho */
+        .glow-effect {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            top: -200px;
+            right: 400px;
+        }
+
+        .glow-2 {
+            bottom: -300px;
+            left: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="instructions">
+        <h2>📸 Como capturar a imagem da capa (4200x700)</h2>
+        <ol>
+            <li>Pressione <code>F12</code> para abrir o DevTools do navegador</li>
+            <li>Clique no ícone de "dispositivo móvel" (Toggle device toolbar) ou pressione <code>Ctrl+Shift+M</code>
+            </li>
+            <li>No topo, clique em "Responsive" e escolha "Edit..." para adicionar um dispositivo personalizado</li>
+            <li>Crie um dispositivo com <code>4200 x 700</code> pixels</li>
+            <li>Aplique o dispositivo e ajuste o zoom para 25% para ver toda a imagem</li>
+            <li>Clique com botão direito na capa abaixo → "Capturar screenshot do nó"</li>
+            <li>Ou use a extensão "GoFullPage" para capturar</li>
+        </ol>
+    </div>
+
+    <!-- CAPA DO LINKEDIN - 4200x700 -->
+    <div class="cover-container" id="linkedin-cover">
+        <!-- Padrão de circuito -->
+        <div class="circuit-pattern"></div>
+
+        <!-- Linhas de conexão -->
+        <div class="connection-lines">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+            <div class="line line-4"></div>
+        </div>
+
+        <!-- Pontos luminosos -->
+        <div class="glow-dot dot-1"></div>
+        <div class="glow-dot dot-2"></div>
+        <div class="glow-dot dot-3"></div>
+        <div class="glow-dot dot-4"></div>
+        <div class="glow-dot dot-5"></div>
+        <div class="glow-dot dot-6"></div>
+
+        <!-- Efeitos de brilho -->
+        <div class="glow-effect glow-1"></div>
+        <div class="glow-effect glow-2"></div>
+
+        <!-- Escudo decorativo -->
+        <div class="shield-decoration">
+            <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 0 L100 20 L100 60 C100 90 50 120 50 120 C50 120 0 90 0 60 L0 20 Z" />
+            </svg>
+        </div>
+
+        <!-- Gradiente lateral -->
+        <div class="side-gradient"></div>
+
+        <!-- Ícones de tecnologia -->
+        <div class="tech-icons">
+            <div class="tech-icon">☁️</div>
+            <div class="tech-icon">🛡️</div>
+            <div class="tech-icon">⚡</div>
+            <div class="tech-icon">🔒</div>
+            <div class="tech-icon">📊</div>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <div class="services">CONSULTORIA TI | MICROSOFT 365 | AZURE | AWS | FINOPS</div>
+            <div class="tagline">Transformando TI em Resultados</div>
+            <div class="subtitle">Soluções empresariais que geram economia e segurança</div>
+        </div>
+
+        <!-- Badges de parceiro -->
+        <div class="partner-badges">
+            <div class="badge">🏆 Microsoft Partner</div>
+            <div class="badge">🏆 AWS Partner</div>
+            <div class="badge">🏆 Acronis Partner</div>
+        </div>
+
+        <!-- Barra inferior colorida -->
+        <div class="bottom-bar"></div>
+    </div>
+
+    <script>
+        // Instruções no console
+        console.log('=== INSTRUÇÕES PARA CAPTURAR A CAPA ===');
+        console.log('1. Abra DevTools (F12)');
+        console.log('2. Vá em Console e execute:');
+        console.log('');
+        console.log('// Copie e cole este código:');
+        console.log(`
+const element = document.getElementById('linkedin-cover');
+const canvas = await html2canvas(element, { 
+    scale: 1,
+    width: 4200,
+    height: 700 
+});
+const link = document.createElement('a');
+link.download = 'linkedin-cover-4200x700.png';
+link.href = canvas.toDataURL('image/png');
+link.click();
+        `);
+    </script>
+</body>
+
+</html>
