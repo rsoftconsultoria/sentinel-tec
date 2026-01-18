@@ -1718,3 +1718,475 @@ select:focus-visible {
         text-align: center;
     }
 }
+
+/* =========================================
+   MOBILE-FIRST RESPONSIVE FRAMEWORK
+   Otimizado para Android, iOS e Browsers Portáteis
+   ========================================= */
+
+/* Touch Target Optimization - Minimum 44x44px for iOS/Android */
+@media (pointer: coarse) {
+
+    .btn,
+    .nav__link,
+    .dropdown__menu a,
+    .faq-item__question,
+    .contact__form button,
+    .whatsapp-float {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .nav__link {
+        padding: var(--spacing-2) var(--spacing-3);
+    }
+
+    /* Disable hover effects on touch devices */
+    .service-card:hover,
+    .suporte-card:hover,
+    .about__card:hover {
+        transform: none;
+    }
+}
+
+/* Extra Small Devices - Smartphones (Portrait) */
+@media (max-width: 480px) {
+    :root {
+        --font-size-5xl: 2rem;
+        --font-size-6xl: 2.5rem;
+        --font-size-4xl: 1.75rem;
+        --font-size-3xl: 1.5rem;
+        --spacing-16: 3rem;
+        --spacing-20: 3.5rem;
+        --spacing-24: 4rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-4);
+    }
+
+    /* Header Mobile */
+    .header {
+        height: 60px;
+    }
+
+    .nav__menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: var(--color-bg-primary);
+        padding: var(--spacing-6);
+        transform: translateX(-100%);
+        transition: transform var(--transition-base);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav__menu.active {
+        transform: translateX(0);
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: var(--spacing-4);
+        align-items: stretch;
+    }
+
+    .nav__link {
+        font-size: var(--font-size-lg);
+        padding: var(--spacing-4);
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav__toggle {
+        display: flex;
+    }
+
+    .nav__cta {
+        display: none;
+    }
+
+    .dropdown__menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: 100%;
+        border: none;
+        background: transparent;
+        padding: 0 0 0 var(--spacing-4);
+        box-shadow: none;
+    }
+
+    /* Hero Mobile */
+    .hero {
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: var(--spacing-12);
+    }
+
+    .hero__title {
+        font-size: var(--font-size-4xl);
+        line-height: 1.2;
+    }
+
+    .hero__description {
+        font-size: var(--font-size-base);
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        gap: var(--spacing-3);
+    }
+
+    .hero__buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero__partners {
+        flex-direction: column;
+        gap: var(--spacing-2);
+        text-align: center;
+    }
+
+    /* Services Mobile */
+    .services__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+
+    .service-card {
+        padding: var(--spacing-5);
+    }
+
+    /* About Mobile */
+    .about__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+
+    .about__stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+        text-align: center;
+    }
+
+    .about__visual {
+        order: -1;
+    }
+
+    /* Expertises Mobile */
+    .expertises__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-3);
+    }
+
+    .expertise-item {
+        padding: var(--spacing-4);
+    }
+
+    /* Contact Mobile */
+    .contact__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+
+    .contact__form {
+        padding: var(--spacing-5);
+    }
+
+    .form-group {
+        margin-bottom: var(--spacing-4);
+    }
+
+    /* Footer Mobile */
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+        text-align: center;
+    }
+
+    .footer__social {
+        justify-content: center;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        gap: var(--spacing-3);
+    }
+
+    /* Section Headers Mobile */
+    .section__title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .section__subtitle {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Small Devices - Smartphones (Landscape) and Small Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    :root {
+        --font-size-6xl: 3rem;
+        --font-size-5xl: 2.5rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-6);
+    }
+
+    /* Header Tablet Small */
+    .nav__menu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background: var(--color-bg-primary);
+        padding: var(--spacing-6);
+        transform: translateX(-100%);
+        transition: transform var(--transition-base);
+        overflow-y: auto;
+    }
+
+    .nav__menu.active {
+        transform: translateX(0);
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: var(--spacing-4);
+        align-items: stretch;
+    }
+
+    .nav__toggle {
+        display: flex;
+    }
+
+    .dropdown__menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        min-width: 100%;
+        border: none;
+        background: transparent;
+        padding-left: var(--spacing-4);
+        box-shadow: none;
+    }
+
+    /* Hero Tablet Small */
+    .hero__title {
+        font-size: var(--font-size-5xl);
+    }
+
+    .hero__buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* Services Tablet Small */
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* About Tablet Small */
+    .about__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Medium Devices - Tablets */
+@media (min-width: 769px) and (max-width: 992px) {
+    .container {
+        padding: 0 var(--spacing-8);
+    }
+
+    /* Services Tablet */
+    .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* About Tablet */
+    .about__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Footer Tablet */
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Devices - Small Laptops */
+@media (min-width: 993px) and (max-width: 1200px) {
+    .services__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+
+    /* Fix for iOS Safari 100vh issue */
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+
+    /* Prevent zooming on input focus */
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+
+    /* Smooth scrolling for iOS */
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Android Chrome Specific Fixes */
+@supports not (-webkit-touch-callout: none) {
+    @media (max-width: 768px) {
+
+        /* Fix Android Chrome address bar height */
+        .hero {
+            min-height: 100svh;
+        }
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: rgba(255, 255, 255, 0.3);
+        --color-text-secondary: #d0d0d0;
+    }
+
+    .btn--primary {
+        border: 2px solid white;
+    }
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .whatsapp-float {
+        animation: none;
+    }
+
+    .hero__glow {
+        display: none;
+    }
+}
+
+/* Dark Mode System Preference (already dark, but ensures consistency) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* Light Mode Override (if needed in future) */
+@media (prefers-color-scheme: light) {
+
+    /* Maintain dark theme regardless of system preference */
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* Landscape Orientation Specific */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        min-height: auto;
+        padding: var(--spacing-16) 0;
+    }
+
+    .hero__title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .nav__menu {
+        height: 100vh;
+    }
+}
+
+/* Safe Area Insets for iPhone X+ and Android Notch Devices */
+@supports (padding: max(0px)) {
+    .header {
+        padding-left: max(var(--spacing-4), env(safe-area-inset-left));
+        padding-right: max(var(--spacing-4), env(safe-area-inset-right));
+    }
+
+    .footer {
+        padding-bottom: max(var(--spacing-8), env(safe-area-inset-bottom));
+    }
+
+    .whatsapp-float {
+        right: max(24px, calc(24px + env(safe-area-inset-right)));
+        bottom: max(24px, calc(24px + env(safe-area-inset-bottom)));
+    }
+}
+
+/* Print Optimization for Mobile */
+@media print {
+
+    .nav__toggle,
+    .whatsapp-float,
+    .hero__glow,
+    .hero__particles {
+        display: none !important;
+    }
+}
+
+/* =========================================
+   PWA STANDALONE MODE STYLES
+   ========================================= */
+@media (display-mode: standalone) {
+    .header {
+        padding-top: env(safe-area-inset-top);
+    }
+
+    .nav__cta {
+        display: inline-flex;
+    }
+}
+
+/* =========================================
+   PERFORMANCE OPTIMIZATIONS FOR MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* Reduce animations on mobile for battery saving */
+    .hero__glow {
+        opacity: 0.2;
+        filter: blur(100px);
+    }
+
+    /* Simplify gradients */
+    .btn--primary::before {
+        display: none;
+    }
+
+    /* Reduce box shadows */
+    .service-card,
+    .suporte-card,
+    .contact__form-wrapper {
+        box-shadow: none;
+    }
+}

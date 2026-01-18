@@ -1,26 +1,133 @@
 {
     "name": "SENTINEL Tecnologia",
     "short_name": "SENTINEL",
-    "description": "Consultoria TI especializada em Microsoft 365, Azure, AWS, Backup e SOC",
+    "description": "Consultoria TI especializada em Microsoft 365, Azure, AWS, Backup e SOC para empresas",
     "start_url": "/",
+    "scope": "/",
     "display": "standalone",
+    "display_override": [
+        "window-controls-overlay",
+        "standalone",
+        "minimal-ui"
+    ],
     "background_color": "#0a0f1c",
-    "theme_color": "#3b82f6",
-    "orientation": "portrait-primary",
+    "theme_color": "#0a0f1c",
+    "orientation": "any",
+    "id": "sentinel-tecnologia",
     "icons": [
+        {
+            "src": "/assets/favicon-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
         {
             "src": "/assets/favicon-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
         },
         {
             "src": "/assets/favicon-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
+        },
+        {
+            "src": "/assets/favicon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/assets/favicon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
-    "categories": ["business", "productivity"],
-    "lang": "pt-BR"
+    "screenshots": [
+        {
+            "src": "/assets/screenshot-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "SENTINEL Tecnologia - Desktop"
+        },
+        {
+            "src": "/assets/screenshot-mobile.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "SENTINEL Tecnologia - Mobile"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Fale Conosco",
+            "short_name": "Contato",
+            "description": "Entre em contato com nossa equipe",
+            "url": "/#contato",
+            "icons": [
+                {
+                    "src": "/assets/shortcut-contact.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Serviços",
+            "short_name": "Serviços",
+            "description": "Conheça nossos serviços",
+            "url": "/#servicos",
+            "icons": [
+                {
+                    "src": "/assets/shortcut-services.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Suporte",
+            "short_name": "Suporte",
+            "description": "Obtenha suporte técnico",
+            "url": "/#suporte",
+            "icons": [
+                {
+                    "src": "/assets/shortcut-support.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "categories": [
+        "business",
+        "productivity",
+        "utilities"
+    ],
+    "lang": "pt-BR",
+    "dir": "ltr",
+    "handle_links": "preferred",
+    "launch_handler": {
+        "client_mode": [
+            "navigate-existing",
+            "auto"
+        ]
+    }
 }

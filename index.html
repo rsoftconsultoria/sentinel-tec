@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- SEO Meta Tags -->
@@ -41,7 +41,8 @@
     <meta name="twitter:image" content="https://rsoftconsultoria.github.io/sentinel-tec/og-image.png">
 
     <!-- Additional SEO Meta Tags -->
-    <meta name="theme-color" content="#3b82f6">
+    <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a0f1c" media="(prefers-color-scheme: dark)">
     <meta name="msapplication-TileColor" content="#0a0f1c">
     <meta name="msapplication-config" content="/browserconfig.xml">
     <meta name="format-detection" content="telephone=no">
@@ -49,6 +50,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="SENTINEL">
+    <meta name="application-name" content="SENTINEL Tecnologia">
+
+    <!-- Android Chrome Specific -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0a0f1c">
+
+    <!-- iOS Splash Screens and Touch Icons -->
+    <link rel="apple-touch-startup-image" href="assets/splash-640x1136.png"
+        media="(device-width: 320px) and (device-height: 568px)">
+    <link rel="apple-touch-startup-image" href="assets/splash-750x1334.png"
+        media="(device-width: 375px) and (device-height: 667px)">
+    <link rel="apple-touch-startup-image" href="assets/splash-1242x2208.png"
+        media="(device-width: 414px) and (device-height: 736px)">
 
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -68,7 +82,7 @@
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css?v=2.0" as="style">
+    <link rel="preload" href="styles.css?v=3.0" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         as="style">
 
@@ -77,7 +91,7 @@
         rel="stylesheet">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=2.0">
+    <link rel="stylesheet" href="styles.css?v=3.0">
 
     <!-- Google Tag Manager (Placeholder - uncomment and configure when ready) -->
     <!--
