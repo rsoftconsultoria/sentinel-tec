@@ -5,73 +5,47 @@
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <!-- Homepage -->
     <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/</loc>
-        <lastmod>2026-01-17</lastmod>
+        <loc>https://sentinel-tec.pages.dev/</loc>
+        <lastmod>2026-01-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     
-    <!-- Future pages - uncomment when created -->
-    <!--
+    <!-- Sobre -->
     <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/microsoft-365</loc>
-        <lastmod>2026-01-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/consultoria-azure</loc>
-        <lastmod>2026-01-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/consultoria-aws</loc>
-        <lastmod>2026-01-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/backup-nuvem</loc>
-        <lastmod>2026-01-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/soc-seguranca</loc>
-        <lastmod>2026-01-17</lastmod>
+        <loc>https://sentinel-tec.pages.dev/sobre.html</loc>
+        <lastmod>2026-01-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    
+    <!-- Landing Pages de Captação de Leads -->
     <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/finops</loc>
-        <lastmod>2026-01-17</lastmod>
+        <loc>https://sentinel-tec.pages.dev/licenciamento-microsoft-365.html</loc>
+        <lastmod>2026-01-18</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
+    
     <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/kubernetes-devops</loc>
-        <lastmod>2026-01-17</lastmod>
+        <loc>https://sentinel-tec.pages.dev/fatura-alta-azure.html</loc>
+        <lastmod>2026-01-18</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
     </url>
+    
+    <!-- URLs Alternativas (GitHub Pages e Netlify) -->
     <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/licitacao-ti</loc>
-        <lastmod>2026-01-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <loc>https://rsoftconsultoria.github.io/sentinel-tec/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
+    
     <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/contato</loc>
-        <lastmod>2026-01-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
+        <loc>https://funny-rolypoly-6326c2.netlify.app/</loc>
+        <lastmod>2026-01-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
-    <url>
-        <loc>https://rsoftconsultoria.github.io/sentinel-tec/blog</loc>
-        <lastmod>2026-01-17</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    -->
 </urlset>

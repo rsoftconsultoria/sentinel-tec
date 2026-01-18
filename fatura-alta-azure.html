@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags - Otimizado para "fatura alta azure" e "reduzir custos azure" -->
+    <title>Fatura Azure Muito Alta? Reduza até 40% | Análise Gratuita | SENTINEL</title>
+    <meta name="description"
+        content="Sua fatura Azure está muito alta? Identificamos desperdícios em 24h. Especialistas em FinOps reduziram R$ 2.4 milhões para nossos clientes. Análise gratuita!">
+    <meta name="keywords"
+        content="fatura alta azure, reduzir custos azure, otimizar azure, finops azure, consultoria azure, economizar azure, fatura azure cara, azure muito caro">
+    <meta name="author" content="SENTINEL Tecnologia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sentinel-tec.pages.dev/fatura-alta-azure.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sentinel-tec.pages.dev/fatura-alta-azure.html">
+    <meta property="og:title" content="Fatura Azure Alta? Veja Como Reduzir em Até 40%">
+    <meta property="og:description"
+        content="Análise gratuita de custos Azure. Identificamos desperdícios e oportunidades de economia em 24 horas.">
+    <meta property="og:image" content="https://sentinel-tec.pages.dev/assets/og-azure-costs.png">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Mobile -->
+    <meta name="theme-color" content="#0089d6">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3.0">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Schema.org - Service -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Consultoria FinOps Azure",
+        "description": "Serviço de otimização de custos Azure. Redução de fatura em até 40%.",
+        "provider": {
+            "@type": "Organization",
+            "name": "SENTINEL Tecnologia"
+        },
+        "areaServed": "BR",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços FinOps",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Análise de Custos Azure",
+                        "description": "Análise completa da fatura Azure com identificação de desperdícios"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJCB3Y6XBZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WJCB3Y6XBZ');
+    </script>
+
+    <style>
+        /* Estilos Landing Page Azure */
+        .az-hero {
+            background: linear-gradient(135deg, #0089d6 0%, #00669e 50%, #004578 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .az-hero::before {
+            content: '⚠️';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            font-size: 200px;
+            opacity: 0.1;
+        }
+
+        .az-hero__content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .az-hero__problem {
+            background: rgba(255, 0, 0, 0.15);
+            border-left: 4px solid #ff4444;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .az-hero__title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .az-hero__title span {
+            color: #50e3c2;
+        }
+
+        .az-hero__subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .az-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .az-stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .az-stat__value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #50e3c2;
+        }
+
+        .az-stat__label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Form */
+        .az-form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .az-form-card__urgency {
+            background: linear-gradient(90deg, #ff4444, #ff6b6b);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            margin: -32px -32px 24px;
+            border-radius: 16px 16px 0 0;
+            font-weight: 600;
+        }
+
+        .az-form-card__title {
+            color: #1a1a2e;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .az-form-card__subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .az-form .form-group {
+            margin-bottom: 14px;
+        }
+
+        .az-form label {
+            display: block;
+            color: #333;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .az-form input,
+        .az-form select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+            background: #fafafa;
+        }
+
+        .az-form input:focus,
+        .az-form select:focus {
+            outline: none;
+            border-color: #0089d6;
+            background: white;
+        }
+
+        .az-form button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, #ff4444, #ff6b6b);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .az-form button:hover {
+            transform: scale(1.02);
+        }
+
+        /* Problems Section */
+        .az-problems {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .az-problems__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .az-problem-card {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .az-problem-card:hover {
+            border-color: #ff4444;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(255, 68, 68, 0.1);
+        }
+
+        .az-problem-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .az-problem-card__title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .az-problem-card__desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Solutions Section */
+        .az-solutions {
+            padding: 80px 0;
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .az-solutions__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .az-solution-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .az-solution-card__number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0089d6, #50e3c2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .az-solution-card__title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .az-solution-card__desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Case Study */
+        .az-case {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #50e3c2 0%, #0089d6 100%);
+        }
+
+        .az-case__card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .az-case__quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .az-case__author {
+            font-weight: 600;
+            color: #0089d6;
+        }
+
+        .az-case__metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .az-case__metric {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .az-case__metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0089d6;
+        }
+
+        .az-case__metric-label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* CTA */
+        .az-cta {
+            padding: 80px 0;
+            background: #0089d6;
+            text-align: center;
+        }
+
+        .az-cta__title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .az-cta__subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .az-cta .btn {
+            background: white;
+            color: #0089d6;
+            font-size: 1.1rem;
+            padding: 16px 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .az-hero__content {
+                grid-template-columns: 1fr;
+            }
+
+            .az-problems__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .az-solutions__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .az-case__card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .az-hero {
+                padding: 100px 0 60px;
+            }
+
+            .az-hero__title {
+                font-size: 2rem;
+            }
+
+            .az-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .az-problems__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .az-case__metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">SENTINEL</span>
+                <span class="logo-sub">Tecnologia</span>
+            </a>
+            <a href="index.html#contato" class="nav__cta btn btn--primary">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="az-hero">
+        <div class="container">
+            <div class="az-hero__content">
+                <div class="az-hero__text">
+                    <div class="az-hero__problem">
+                        ⚠️ Sua fatura Azure está mais alta do que deveria?
+                    </div>
+                    <h1 class="az-hero__title">
+                        Reduza sua Fatura Azure em até <span>40%</span>
+                    </h1>
+                    <p class="az-hero__subtitle">
+                        Identificamos desperdícios ocultos na sua infraestrutura Azure em 24 horas.
+                        Especialistas FinOps com +100 otimizações realizadas.
+                    </p>
+
+                    <div class="az-stats">
+                        <div class="az-stat">
+                            <div class="az-stat__value">R$ 2.4M</div>
+                            <div class="az-stat__label">Economizados para clientes</div>
+                        </div>
+                        <div class="az-stat">
+                            <div class="az-stat__value">40%</div>
+                            <div class="az-stat__label">Redução média de custos</div>
+                        </div>
+                        <div class="az-stat">
+                            <div class="az-stat__value">24h</div>
+                            <div class="az-stat__label">Análise completa</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="az-form-card">
+                    <div class="az-form-card__urgency">
+                        🔥 Análise Gratuita - Vagas Limitadas
+                    </div>
+                    <h2 class="az-form-card__title">Solicite sua Análise de Custos</h2>
+                    <p class="az-form-card__subtitle">Descubra quanto você pode economizar</p>
+
+                    <form class="az-form" action="https://formspree.io/f/xbdddowv" method="POST">
+                        <input type="hidden" name="_subject" value="Lead Urgente - Fatura Alta Azure">
+                        <input type="hidden" name="origem" value="landing-page-azure-custos">
+
+                        <div class="form-group">
+                            <label for="name">Nome Completo *</label>
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail Corporativo *</label>
+                            <input type="email" id="email" name="email" placeholder="seu@empresa.com.br" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bill">Valor Atual da Fatura Azure (mensal) *</label>
+                            <select id="bill" name="fatura_azure" required>
+                                <option value="">Selecione</option>
+                                <option value="1000-5000">R$ 1.000 - R$ 5.000</option>
+                                <option value="5000-15000">R$ 5.000 - R$ 15.000</option>
+                                <option value="15000-50000">R$ 15.000 - R$ 50.000</option>
+                                <option value="50000-100000">R$ 50.000 - R$ 100.000</option>
+                                <option value="100000+">Acima de R$ 100.000</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urgency">Urgência *</label>
+                            <select id="urgency" name="urgencia" required>
+                                <option value="">Selecione</option>
+                                <option value="urgente">Urgente - Preciso reduzir agora</option>
+                                <option value="planejado">Planejado - Próximos 30 dias</option>
+                                <option value="explorando">Explorando opções</option>
+                            </select>
+                        </div>
+
+                        <button type="submit">Quero Reduzir Minha Fatura →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="az-problems">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Problemas Comuns</span>
+                <h2 class="section__title" style="color: #1a1a2e;">Por que sua Fatura Azure está <span
+                        style="color: #ff4444;">Alta?</span></h2>
+            </div>
+
+            <div class="az-problems__grid">
+                <div class="az-problem-card">
+                    <div class="az-problem-card__icon">💰</div>
+                    <h3 class="az-problem-card__title">VMs Superdimensionadas</h3>
+                    <p class="az-problem-card__desc">Máquinas virtuais maiores que o necessário consumindo recursos
+                        desnecessários.</p>
+                </div>
+
+                <div class="az-problem-card">
+                    <div class="az-problem-card__icon">🌙</div>
+                    <h3 class="az-problem-card__title">Recursos Ociosos</h3>
+                    <p class="az-problem-card__desc">Ambientes de dev/test rodando 24/7 sem necessidade.</p>
+                </div>
+
+                <div class="az-problem-card">
+                    <div class="az-problem-card__icon">📦</div>
+                    <h3 class="az-problem-card__title">Storage Abandonado</h3>
+                    <p class="az-problem-card__desc">Discos, snapshots e blobs não utilizados gerando custos.</p>
+                </div>
+
+                <div class="az-problem-card">
+                    <div class="az-problem-card__icon">📊</div>
+                    <h3 class="az-problem-card__title">Sem Reserved Instances</h3>
+                    <p class="az-problem-card__desc">Pagando preço on-demand quando poderia economizar até 72%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="az-solutions">
+        <div class="container">
+            <div class="section__header" style="color: white;">
+                <span class="section__tag">Nosso Processo</span>
+                <h2 class="section__title">Como <span class="gradient-text">Reduzimos seus Custos</span></h2>
+            </div>
+
+            <div class="az-solutions__grid">
+                <div class="az-solution-card">
+                    <div class="az-solution-card__number">1</div>
+                    <h3 class="az-solution-card__title">Análise Completa</h3>
+                    <p class="az-solution-card__desc">Auditamos toda sua infraestrutura Azure, identificando
+                        desperdícios, recursos ociosos e oportunidades de rightsizing.</p>
+                </div>
+
+                <div class="az-solution-card">
+                    <div class="az-solution-card__number">2</div>
+                    <h3 class="az-solution-card__title">Plano de Ação</h3>
+                    <p class="az-solution-card__desc">Criamos um roadmap priorizado com ações de quick-win e otimizações
+                        de longo prazo, com estimativa de economia.</p>
+                </div>
+
+                <div class="az-solution-card">
+                    <div class="az-solution-card__number">3</div>
+                    <h3 class="az-solution-card__title">Implementação</h3>
+                    <p class="az-solution-card__desc">Executamos as otimizações com segurança, configuramos alertas e
+                        políticas para manter os custos sob controle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study -->
+    <section class="az-case">
+        <div class="container">
+            <div class="az-case__card">
+                <div class="az-case__content">
+                    <h3 style="color: #0089d6; margin-bottom: 16px;">Case de Sucesso</h3>
+                    <p class="az-case__quote">
+                        "A SENTINEL reduziu nossa fatura Azure de R$ 85.000 para R$ 52.000 por mês.
+                        Em 6 meses, a economia pagou todo o projeto e ainda sobraram R$ 180.000."
+                    </p>
+                    <p class="az-case__author">— Diretor de TI, Empresa de E-commerce (SP)</p>
+                </div>
+
+                <div class="az-case__metrics">
+                    <div class="az-case__metric">
+                        <div class="az-case__metric-value">39%</div>
+                        <div class="az-case__metric-label">Redução na fatura</div>
+                    </div>
+                    <div class="az-case__metric">
+                        <div class="az-case__metric-value">R$ 396K</div>
+                        <div class="az-case__metric-label">Economia anual</div>
+                    </div>
+                    <div class="az-case__metric">
+                        <div class="az-case__metric-value">15 dias</div>
+                        <div class="az-case__metric-label">Tempo de implementação</div>
+                    </div>
+                    <div class="az-case__metric">
+                        <div class="az-case__metric-value">0</div>
+                        <div class="az-case__metric-label">Downtime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="az-cta">
+        <div class="container">
+            <h2 class="az-cta__title">Pare de Pagar Mais do que Deveria</h2>
+            <p class="az-cta__subtitle">Análise gratuita + Relatório de economia em 24 horas</p>
+            <a href="https://wa.me/5521994559564?text=Olá! Minha fatura Azure está alta e preciso de ajuda para reduzir custos."
+                class="btn" target="_blank">
+                Falar com Especialista Agora →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__bottom">
+                <p>&copy; 2026 SENTINEL Tecnologia. Todos os direitos reservados. Microsoft Partner | AWS Partner.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5521994559564?text=Olá! Preciso de ajuda para reduzir minha fatura Azure."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+</body>
+
+</html>
