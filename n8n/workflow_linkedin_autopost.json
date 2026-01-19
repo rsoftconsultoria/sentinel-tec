@@ -1,0 +1,125 @@
+{
+    "name": "SENTINEL - LinkedIn Auto Post",
+    "nodes": [
+        {
+            "parameters": {
+                "rule": {
+                    "interval": [
+                        {
+                            "field": "cronExpression",
+                            "expression": "0 8 * * 1-5"
+                        }
+                    ]
+                }
+            },
+            "id": "schedule-daily",
+            "name": "Agendamento Diário (8h dias úteis)",
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.1,
+            "position": [
+                220,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "jsCode": "// Calendário de Posts LinkedIn - SENTINEL Tecnologia\n// Foco em dores do cliente e CTA para consultoria gratuita\n\nconst posts = [\n  // SEMANA 1 - DORES DE LICENCIAMENTO\n  {\n    day: 1,\n    theme: 'Licenciamento Microsoft',\n    content: `🚨 Você está PAGANDO DEMAIS pelo Microsoft 365?\n\n5 sinais de que sua empresa está desperdiçando dinheiro:\n\n❌ Licenças ociosas (usuários que saíram)\n❌ Plano errado para o perfil de uso\n❌ Funcionalidades pagas que ninguém usa\n❌ Falta de gestão centralizada\n❌ Renovação automática sem análise\n\n📊 Em média, empresas desperdiçam 30% do investimento em licenças!\n\n🎁 **CONSULTORIA GRATUITA**: Analisamos seu ambiente Microsoft 365 e identificamos onde você pode economizar.\n\n👉 Acesse: sentinel-tec.pages.dev/licenciamento-microsoft-365\n\n#Microsoft365 #Licenciamento #TI #Economia #Consultoria`,\n    cta_url: 'https://sentinel-tec.pages.dev/licenciamento-microsoft-365.html',\n    image_prompt: 'Business professional looking stressed at computer with Microsoft logo, money flying away, clean corporate style'\n  },\n  {\n    day: 2,\n    theme: 'Enquete Engajamento',\n    content: `📊 ENQUETE: Qual o maior desafio da sua empresa com Microsoft 365?\n\n🔵 Custos altos demais\n🟢 Falta de treinamento da equipe\n🟡 Não uso todas as funcionalidades\n🔴 Problemas de segurança\n\nComente sua resposta! 👇\n\n#Microsoft365 #TI #Enquete #Tecnologia`,\n    cta_url: 'https://sentinel-tec.pages.dev/',\n    image_prompt: null\n  },\n  {\n    day: 3,\n    theme: 'Case de Sucesso',\n    content: `✅ CASE: Como reduzimos R$ 45.000/ano em licenças Microsoft\n\n📋 O cenário:\n• Empresa de 120 funcionários\n• 150 licenças Microsoft 365 Business Premium\n• Nenhuma gestão de licenciamento\n\n🔍 O que encontramos:\n• 32 licenças de ex-funcionários ativas\n• 45 usuários com plano acima do necessário\n• Funcionalidades duplicadas com outros fornecedores\n\n💰 O resultado:\n• Economia imediata: R$ 45.000/ano\n• ROI da consultoria: 1.500%\n• Tempo de implementação: 2 semanas\n\n🎁 Quer o mesmo resultado?\n👉 Consultoria GRATUITA: sentinel-tec.pages.dev\n\n#Case #Microsoft365 #Economia #ROI #TI`,\n    cta_url: 'https://sentinel-tec.pages.dev/licenciamento-microsoft-365.html',\n    image_prompt: 'Before and after graph showing cost reduction, green arrow down, professional business chart'\n  },\n  // SEMANA 2 - DORES DE CLOUD/AZURE\n  {\n    day: 4,\n    theme: 'Fatura Azure Alta',\n    content: `💸 Sua fatura do Azure ASSUSTA todo mês?\n\nVocê não está sozinho. Veja os vilões do seu orçamento:\n\n🔴 VMs ligadas 24/7 sem necessidade\n🔴 Discos órfãos (sem VM vinculada)\n🔴 IPs públicos não utilizados\n🔴 Snapshots antigos acumulados\n🔴 Plano de suporte incorreto\n\n📉 Empresas desperdiçam em média 35% do investimento em Cloud!\n\n🎁 **ANÁLISE GRATUITA**: Identificamos todos os desperdícios do seu ambiente Azure.\n\n👉 Acesse: sentinel-tec.pages.dev/fatura-alta-azure\n\n#Azure #FinOps #Cloud #Economia #AWS #GCP`,\n    cta_url: 'https://sentinel-tec.pages.dev/fatura-alta-azure.html',\n    image_prompt: 'Cloud computing costs going up, red arrow, worried business person, Azure logo, professional style'\n  },\n  {\n    day: 5,\n    theme: 'Dica FinOps',\n    content: `💡 DICA RÁPIDA: 3 comandos para identificar desperdício no Azure\n\n1️⃣ Listar VMs desligadas há mais de 30 dias:\n\\`az vm list --query \"[?powerState=='VM deallocated']\"\\`\n\n2️⃣ Encontrar discos órfãos:\n\\`az disk list --query \"[?managedBy==null]\"\\`\n\n3️⃣ Verificar IPs públicos não associados:\n\\`az network public-ip list --query \"[?ipConfiguration==null]\"\\`\n\n🎯 Encontrou algo? Hora de limpar!\n\n📞 Precisa de ajuda profissional?\n👉 Consultoria FinOps gratuita: sentinel-tec.pages.dev\n\n#Azure #FinOps #DevOps #Cloud #Dica`,\n    cta_url: 'https://sentinel-tec.pages.dev/fatura-alta-azure.html',\n    image_prompt: null\n  },\n  // SEMANA 3 - SEGURANÇA E BACKUP\n  {\n    day: 6,\n    theme: 'Backup e Segurança',\n    content: `🔒 Quando foi seu último TESTE de backup?\n\nSe você não lembra, você está em risco!\n\n⚠️ Estatísticas alarmantes:\n• 60% das empresas que perdem dados fecham em 6 meses\n• 75% dos backups falham na hora de restaurar\n• Ransomware ataca 1 empresa a cada 11 segundos\n\n✅ Checklist básico de Backup:\n□ Backup diário automatizado\n□ Cópia offsite (outra localização)\n□ Teste de restauração mensal\n□ Backup imutável (anti-ransomware)\n□ RPO e RTO definidos\n\n🎁 **DIAGNÓSTICO GRATUITO**: Avaliamos sua estratégia de backup.\n\n👉 sentinel-tec.pages.dev\n\n#Backup #Segurança #Ransomware #TI #Cloud`,\n    cta_url: 'https://sentinel-tec.pages.dev/',\n    image_prompt: 'Data protection shield, backup cloud, security lock, professional blue tone'\n  },\n  {\n    day: 7,\n    theme: 'Tendência IA',\n    content: `🤖 IA no Microsoft 365: Você está pronto?\n\nO Copilot está mudando a forma como trabalhamos:\n\n📧 Email: Resume conversas longas em segundos\n📊 Excel: Cria análises com linguagem natural\n📝 Word: Escreve documentos a partir de tópicos\n🎯 Teams: Gera atas de reunião automaticamente\n\nMas atenção:\n• Licença separada (~$30/usuário/mês)\n• Requer Microsoft 365 E3/E5\n• Dados precisam estar na nuvem Microsoft\n\n❓ Vale a pena para sua empresa?\n\n🎁 Consultoria gratuita para avaliar!\n👉 sentinel-tec.pages.dev\n\n#IA #Copilot #Microsoft365 #Produtividade #Inovação`,\n    cta_url: 'https://sentinel-tec.pages.dev/',\n    image_prompt: 'AI assistant helping business person, Microsoft Copilot style, futuristic office, purple and blue tones'\n  }\n];\n\n// Calcular qual post usar baseado no dia do ano\nconst now = new Date();\nconst startOfYear = new Date(now.getFullYear(), 0, 0);\nconst diff = now - startOfYear;\nconst dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));\nconst postIndex = (dayOfYear - 1) % posts.length;\n\nconst todayPost = posts[postIndex];\n\nreturn {\n  ...todayPost,\n  generatedAt: now.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),\n  postIndex: postIndex + 1,\n  totalPosts: posts.length\n};"
+            },
+            "id": "get-post",
+            "name": "Selecionar Post do Dia",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                440,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "text": "={{ $json.content }}",
+                "additionalFields": {}
+            },
+            "id": "linkedin-post",
+            "name": "Postar no LinkedIn",
+            "type": "n8n-nodes-base.linkedIn",
+            "typeVersion": 1,
+            "position": [
+                660,
+                300
+            ],
+            "credentials": {
+                "linkedInOAuth2Api": {
+                    "id": "LINKEDIN_CREDENTIAL_ID",
+                    "name": "LinkedIn OAuth2"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "operation": "appendOrUpdate",
+                "documentId": {
+                    "__rl": true,
+                    "value": "YOUR_GOOGLE_SHEET_ID",
+                    "mode": "id"
+                },
+                "sheetName": "Posts LinkedIn",
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "Data": "={{ $json.generatedAt }}",
+                        "Tema": "={{ $json.theme }}",
+                        "Índice": "={{ $json.postIndex }}",
+                        "CTA URL": "={{ $json.cta_url }}",
+                        "Status": "Publicado"
+                    }
+                }
+            },
+            "id": "log-sheets",
+            "name": "Registrar no Google Sheets",
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4,
+            "position": [
+                880,
+                300
+            ]
+        }
+    ],
+    "connections": {
+        "Agendamento Diário (8h dias úteis)": {
+            "main": [
+                [
+                    {
+                        "node": "Selecionar Post do Dia",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Selecionar Post do Dia": {
+            "main": [
+                [
+                    {
+                        "node": "Postar no LinkedIn",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Postar no LinkedIn": {
+            "main": [
+                [
+                    {
+                        "node": "Registrar no Google Sheets",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {
+        "executionOrder": "v1"
+    }
+}

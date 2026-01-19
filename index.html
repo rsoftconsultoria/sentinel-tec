@@ -951,7 +951,7 @@
         </svg>
     </a>
 
-    <!-- Tawk.to - Chatbot 24/7 para atendimento automático -->
+    <!-- Tawk.to temporariamente desativado - reativar após configurar em português
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
         (function () {
@@ -962,39 +962,10 @@
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
         })();
-
-        // Auto-trigger após 30 segundos na página
-        Tawk_API.onLoad = function () {
-            setTimeout(function () {
-                if (typeof Tawk_API.maximize === 'function') {
-                    // Chat pronto para interação
-                }
-            }, 30000);
-        };
-
-        // Rastrear página de interesse para qualificação de leads
-        Tawk_API.onChatStarted = function () {
-            var page = window.location.pathname;
-            if (page.includes('microsoft-365')) {
-                Tawk_API.addTags(['Microsoft 365', 'Licenciamento']);
-            } else if (page.includes('azure') || page.includes('fatura')) {
-                Tawk_API.addTags(['Azure', 'FinOps', 'Lead Quente']);
-            }
-        };
     </script>
+    -->
 
-    <!-- Crisp.chat - Chatbot Secundário (backup) -->
-    <script type="text/javascript">
-        window.$crisp = [];
-        window.CRISP_WEBSITE_ID = "5770969e-52d3-4f2e-a17a-2a6334103e38";
-        (function () {
-            d = document;
-            s = d.createElement("script");
-            s.src = "https://client.crisp.chat/l.js";
-            s.async = 1;
-            d.getElementsByTagName("head")[0].appendChild(s);
-        })();
-    </script>
+    <!-- Crisp removido para evitar conflito visual com Tawk.to -->
 
     <!-- Google Analytics (substitua G-XXXXXXXXXX pelo seu ID) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>

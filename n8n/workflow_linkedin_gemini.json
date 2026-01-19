@@ -1,0 +1,278 @@
+{
+    "name": "SENTINEL - LinkedIn Auto Post com Gemini AI",
+    "nodes": [
+        {
+            "parameters": {
+                "rule": {
+                    "interval": [
+                        {
+                            "field": "cronExpression",
+                            "expression": "0 8 * * 1-5"
+                        }
+                    ]
+                }
+            },
+            "id": "schedule-trigger",
+            "name": "Agendamento 8h (Seg-Sex)",
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.1,
+            "position": [
+                120,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "jsCode": "// ========================================\n// CALENDÁRIO DE TEMAS - SENTINEL TECNOLOGIA\n// ========================================\n// Cada dia da semana tem um tema e foco de CTA\n\nconst temas = {\n  1: { // Segunda\n    tema: 'Licenciamento Microsoft 365',\n    dor: 'Custos altos com licenças',\n    cta_url: 'https://sentinel-tec.pages.dev/licenciamento-microsoft-365.html',\n    cta_texto: '🎁 Análise GRATUITA do seu ambiente M365',\n    hashtags: '#Microsoft365 #Licenciamento #TI #Economia'\n  },\n  2: { // Terça\n    tema: 'Azure FinOps',\n    dor: 'Fatura de cloud muito alta',\n    cta_url: 'https://sentinel-tec.pages.dev/fatura-alta-azure.html',\n    cta_texto: '🎁 Descubra onde você está desperdiçando dinheiro',\n    hashtags: '#Azure #FinOps #Cloud #AWS #Economia'\n  },\n  3: { // Quarta\n    tema: 'Dica Técnica',\n    dor: 'Falta de conhecimento prático',\n    cta_url: 'https://sentinel-tec.pages.dev/',\n    cta_texto: '💡 Mais dicas no nosso site',\n    hashtags: '#TI #DevOps #Cloud #Dicas #Tutorial'\n  },\n  4: { // Quinta\n    tema: 'Backup e Segurança',\n    dor: 'Medo de perder dados',\n    cta_url: 'https://sentinel-tec.pages.dev/',\n    cta_texto: '🔒 Diagnóstico GRATUITO de segurança',\n    hashtags: '#Backup #Segurança #Ransomware #TI'\n  },\n  5: { // Sexta\n    tema: 'Case de Sucesso / IA',\n    dor: 'Precisa de prova social',\n    cta_url: 'https://sentinel-tec.pages.dev/',\n    cta_texto: '🚀 Consultoria GRATUITA para sua empresa',\n    hashtags: '#Case #Sucesso #IA #Inovação #Tecnologia'\n  }\n};\n\nconst now = new Date();\nconst diaSemana = now.getDay(); // 0=Dom, 1=Seg, ..., 5=Sex, 6=Sab\nconst dataFormatada = now.toLocaleDateString('pt-BR');\n\n// Se for fim de semana, usa tema de sexta\nconst temaHoje = temas[diaSemana] || temas[5];\n\nreturn {\n  ...temaHoje,\n  data: dataFormatada,\n  diaSemana: diaSemana,\n  timestamp: now.toISOString()\n};"
+            },
+            "id": "get-tema",
+            "name": "Selecionar Tema do Dia",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                320,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+                "authentication": "genericCredentialType",
+                "genericAuthType": "httpQueryAuth",
+                "sendQuery": true,
+                "queryParameters": {
+                    "parameters": [
+                        {
+                            "name": "key",
+                            "value": "={{$credentials.apiKey}}"
+                        }
+                    ]
+                },
+                "sendBody": true,
+                "specifyBody": "json",
+                "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [{\n      \"text\": \"Você é um especialista em marketing B2B para empresas de TI. Crie um post para LinkedIn para a empresa SENTINEL Tecnologia.\\n\\nTEMA DO DIA: {{ $json.tema }}\\nDOR DO CLIENTE: {{ $json.dor }}\\n\\nREGRAS:\\n1. Máximo 280 palavras\\n2. Use emojis estrategicamente (não exagere)\\n3. Comece com uma pergunta ou estatística impactante\\n4. Apresente a dor do cliente de forma empática\\n5. Ofereça uma solução sutil\\n6. Termine com CTA claro: {{ $json.cta_texto }}\\n7. Inclua o link: {{ $json.cta_url }}\\n8. Adicione as hashtags no final: {{ $json.hashtags }}\\n\\nTOM: Profissional, consultivo, não vendedor.\\nOBJETIVO: Gerar interesse pela consultoria gratuita.\\n\\nResponda APENAS com o texto do post, sem explicações.\"\n    }]\n  }],\n  \"generationConfig\": {\n    \"temperature\": 0.8,\n    \"maxOutputTokens\": 500\n  }\n}",
+                "options": {}
+            },
+            "id": "gemini-text",
+            "name": "Gemini - Gerar Texto do Post",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+                520,
+                200
+            ],
+            "credentials": {
+                "httpQueryAuth": {
+                    "id": "GEMINI_API_KEY_CREDENTIAL",
+                    "name": "Gemini API Key"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsCode": "// Extrair o texto gerado pelo Gemini\nconst response = $input.first().json;\nconst inputData = $('Selecionar Tema do Dia').first().json;\n\nlet postText = '';\n\ntry {\n  postText = response.candidates[0].content.parts[0].text;\n} catch (e) {\n  // Fallback se Gemini falhar\n  postText = `🎯 Você sabe quanto sua empresa gasta com ${inputData.tema}?\\n\\nMuitas empresas desperdiçam recursos sem perceber. A dor mais comum: ${inputData.dor}.\\n\\nNa SENTINEL Tecnologia, ajudamos empresas a otimizar seus investimentos em TI.\\n\\n${inputData.cta_texto}\\n\\n👉 ${inputData.cta_url}\\n\\n${inputData.hashtags}`;\n}\n\n// Criar prompt para imagem\nconst imagePrompt = `Professional LinkedIn post image for IT consulting company. Theme: ${inputData.tema}. Style: Modern, corporate, blue and purple gradient, clean design, abstract technology elements, no text overlay. High quality, 1200x627 pixels aspect ratio.`;\n\nreturn {\n  postText: postText.trim(),\n  imagePrompt: imagePrompt,\n  tema: inputData.tema,\n  cta_url: inputData.cta_url,\n  data: inputData.data\n};"
+            },
+            "id": "process-text",
+            "name": "Processar Texto Gerado",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                720,
+                200
+            ]
+        },
+        {
+            "parameters": {
+                "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+                "authentication": "genericCredentialType",
+                "genericAuthType": "httpQueryAuth",
+                "sendQuery": true,
+                "queryParameters": {
+                    "parameters": [
+                        {
+                            "name": "key",
+                            "value": "={{$credentials.apiKey}}"
+                        }
+                    ]
+                },
+                "sendBody": true,
+                "specifyBody": "json",
+                "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [{\n      \"text\": \"Generate a professional image for LinkedIn post. {{ $json.imagePrompt }}\"\n    }]\n  }],\n  \"generationConfig\": {\n    \"responseModalities\": [\"image\", \"text\"],\n    \"imageMimeType\": \"image/png\"\n  }\n}",
+                "options": {}
+            },
+            "id": "gemini-image",
+            "name": "Gemini - Gerar Imagem",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+                920,
+                300
+            ],
+            "credentials": {
+                "httpQueryAuth": {
+                    "id": "GEMINI_API_KEY_CREDENTIAL",
+                    "name": "Gemini API Key"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsCode": "// Processar imagem do Gemini\nconst imageResponse = $input.first().json;\nconst textData = $('Processar Texto Gerado').first().json;\n\nlet imageBase64 = null;\nlet imageMimeType = 'image/png';\n\ntry {\n  // Tentar extrair imagem da resposta do Gemini\n  const parts = imageResponse.candidates[0].content.parts;\n  for (const part of parts) {\n    if (part.inlineData) {\n      imageBase64 = part.inlineData.data;\n      imageMimeType = part.inlineData.mimeType || 'image/png';\n      break;\n    }\n  }\n} catch (e) {\n  console.log('Erro ao extrair imagem:', e.message);\n}\n\nreturn {\n  postText: textData.postText,\n  hasImage: imageBase64 !== null,\n  imageBase64: imageBase64,\n  imageMimeType: imageMimeType,\n  tema: textData.tema,\n  cta_url: textData.cta_url,\n  data: textData.data\n};"
+            },
+            "id": "process-image",
+            "name": "Processar Imagem",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                1120,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "text": "={{ $json.postText }}",
+                "additionalFields": {
+                    "visibility": "PUBLIC"
+                }
+            },
+            "id": "linkedin-post",
+            "name": "Postar no LinkedIn",
+            "type": "n8n-nodes-base.linkedIn",
+            "typeVersion": 1,
+            "position": [
+                1320,
+                300
+            ],
+            "credentials": {
+                "linkedInOAuth2Api": {
+                    "id": "LINKEDIN_CREDENTIAL",
+                    "name": "LinkedIn OAuth2"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "operation": "append",
+                "documentId": {
+                    "__rl": true,
+                    "value": "YOUR_GOOGLE_SHEET_ID",
+                    "mode": "id"
+                },
+                "sheetName": "Log Posts",
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "Data": "={{ $json.data }}",
+                        "Tema": "={{ $json.tema }}",
+                        "Post": "={{ $json.postText.substring(0, 200) }}...",
+                        "CTA URL": "={{ $json.cta_url }}",
+                        "Imagem": "={{ $json.hasImage ? 'Sim' : 'Não' }}",
+                        "Status": "Publicado"
+                    }
+                }
+            },
+            "id": "log-post",
+            "name": "Registrar no Google Sheets",
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4,
+            "position": [
+                1520,
+                300
+            ]
+        }
+    ],
+    "connections": {
+        "Agendamento 8h (Seg-Sex)": {
+            "main": [
+                [
+                    {
+                        "node": "Selecionar Tema do Dia",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Selecionar Tema do Dia": {
+            "main": [
+                [
+                    {
+                        "node": "Gemini - Gerar Texto do Post",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Gemini - Gerar Texto do Post": {
+            "main": [
+                [
+                    {
+                        "node": "Processar Texto Gerado",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Processar Texto Gerado": {
+            "main": [
+                [
+                    {
+                        "node": "Gemini - Gerar Imagem",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Gemini - Gerar Imagem": {
+            "main": [
+                [
+                    {
+                        "node": "Processar Imagem",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Processar Imagem": {
+            "main": [
+                [
+                    {
+                        "node": "Postar no LinkedIn",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Postar no LinkedIn": {
+            "main": [
+                [
+                    {
+                        "node": "Registrar no Google Sheets",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {
+        "executionOrder": "v1"
+    },
+    "staticData": null,
+    "tags": [
+        {
+            "name": "LinkedIn"
+        },
+        {
+            "name": "Automação"
+        },
+        {
+            "name": "Gemini"
+        }
+    ]
+}
