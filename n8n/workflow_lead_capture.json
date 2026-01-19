@@ -1,0 +1,206 @@
+{
+    "name": "SENTINEL - Lead Capture & Qualification",
+    "nodes": [
+        {
+            "parameters": {
+                "httpMethod": "POST",
+                "path": "sentinel-lead",
+                "responseMode": "onReceived",
+                "responseData": "allEntries"
+            },
+            "id": "webhook-formspree",
+            "name": "Webhook Formspree",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                240,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "functionCode": "// Lead Scoring para SENTINEL Tecnologia\nconst lead = items[0].json;\nlet score = 0;\nlet tags = [];\n\n// Identificar origem\nconst source = lead._subject || lead.service || '';\nconst message = lead.message || '';\nconst company = lead.company || '';\n\n// Score baseado no serviço de interesse\nif (source.toLowerCase().includes('azure') || message.toLowerCase().includes('azure')) {\n  score += 25;\n  tags.push('Azure');\n  tags.push('FinOps');\n}\nif (source.toLowerCase().includes('microsoft') || source.toLowerCase().includes('365')) {\n  score += 20;\n  tags.push('Microsoft 365');\n  tags.push('Licenciamento');\n}\nif (source.toLowerCase().includes('backup')) {\n  score += 15;\n  tags.push('Backup');\n}\nif (source.toLowerCase().includes('aws')) {\n  score += 20;\n  tags.push('AWS');\n}\n\n// Score baseado na mensagem (urgência)\nconst urgentWords = ['urgente', 'imediato', 'rápido', 'hoje', 'agora', 'crítico'];\nif (urgentWords.some(word => message.toLowerCase().includes(word))) {\n  score += 30;\n  tags.push('Urgente');\n}\n\n// Score baseado no cargo (se informado)\nconst highRoles = ['cto', 'cio', 'diretor', 'gerente', 'head', 'owner', 'dono', 'ceo'];\nif (highRoles.some(role => message.toLowerCase().includes(role))) {\n  score += 25;\n  tags.push('Decisor');\n}\n\n// Qualificação\nlet qualification = 'Frio';\nlet priority = 'Normal';\nif (score >= 60) {\n  qualification = 'Quente';\n  priority = 'Alta';\n} else if (score >= 30) {\n  qualification = 'Morno';\n  priority = 'Média';\n}\n\n// Timestamp\nconst now = new Date();\nconst timestamp = now.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });\n\nreturn [{\n  json: {\n    ...lead,\n    score: score,\n    qualification: qualification,\n    priority: priority,\n    tags: tags.join(', '),\n    processedAt: timestamp,\n    dayOfWeek: now.toLocaleDateString('pt-BR', { weekday: 'long' })\n  }\n}];"
+            },
+            "id": "lead-scoring",
+            "name": "Lead Scoring",
+            "type": "n8n-nodes-base.function",
+            "typeVersion": 1,
+            "position": [
+                480,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "number": [
+                        {
+                            "value1": "={{$json.score}}",
+                            "operation": "largerEqual",
+                            "value2": 60
+                        }
+                    ]
+                }
+            },
+            "id": "check-hot-lead",
+            "name": "Lead Quente?",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 1,
+            "position": [
+                720,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "operation": "appendOrUpdate",
+                "documentId": {
+                    "__rl": true,
+                    "value": "YOUR_GOOGLE_SHEET_ID",
+                    "mode": "id"
+                },
+                "sheetName": "Leads",
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "Data": "={{$json.processedAt}}",
+                        "Nome": "={{$json.name}}",
+                        "Email": "={{$json.email}}",
+                        "Telefone": "={{$json.phone}}",
+                        "Empresa": "={{$json.company}}",
+                        "Serviço": "={{$json.service}}",
+                        "Mensagem": "={{$json.message}}",
+                        "Score": "={{$json.score}}",
+                        "Qualificação": "={{$json.qualification}}",
+                        "Prioridade": "={{$json.priority}}",
+                        "Tags": "={{$json.tags}}"
+                    }
+                }
+            },
+            "id": "save-to-sheets",
+            "name": "Salvar no Google Sheets",
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4,
+            "position": [
+                960,
+                200
+            ]
+        },
+        {
+            "parameters": {
+                "url": "https://api.whatsapp.com/send",
+                "sendQuery": true,
+                "queryParameters": {
+                    "parameters": [
+                        {
+                            "name": "phone",
+                            "value": "5521994559564"
+                        },
+                        {
+                            "name": "text",
+                            "value": "=🔥 *LEAD QUENTE - SENTINEL*\n\nScore: {{$json.score}}\nQualificação: {{$json.qualification}}\n\n👤 Nome: {{$json.name}}\n📧 Email: {{$json.email}}\n📱 Telefone: {{$json.phone}}\n🏢 Empresa: {{$json.company}}\n🎯 Serviço: {{$json.service}}\n\n💬 Mensagem: {{$json.message}}\n\n⏰ {{$json.processedAt}}\n\n‼️ LIGAR IMEDIATAMENTE!"
+                        }
+                    ]
+                }
+            },
+            "id": "whatsapp-alert",
+            "name": "Alerta WhatsApp",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4,
+            "position": [
+                960,
+                400
+            ]
+        },
+        {
+            "parameters": {
+                "fromEmail": "contato@sentinel-tec.com.br",
+                "toEmail": "={{$json.email}}",
+                "subject": "Recebemos seu contato - SENTINEL Tecnologia",
+                "emailType": "html",
+                "html": "<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }\n    .content { padding: 30px; }\n    .footer { background: #f5f5f5; padding: 20px; text-align: center; font-size: 12px; }\n    .button { display: inline-block; background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }\n  </style>\n</head>\n<body>\n  <div class='header'>\n    <h1>🛡️ SENTINEL Tecnologia</h1>\n  </div>\n  <div class='content'>\n    <h2>Olá, {{$json.name}}!</h2>\n    <p>Obrigado pelo seu interesse nos serviços da <strong>SENTINEL Tecnologia</strong>!</p>\n    <p>Recebemos sua solicitação sobre <strong>{{$json.service}}</strong> e nossa equipe já está analisando.</p>\n    <p>📞 <strong>Em breve um especialista entrará em contato com você.</strong></p>\n    <p>Enquanto isso, você pode:</p>\n    <ul>\n      <li>Agendar uma reunião diretamente: <a href='https://calendly.com/sentinel-tec'>Clique aqui</a></li>\n      <li>Falar pelo WhatsApp: <a href='https://wa.me/5521994559564'>+55 21 99455-9564</a></li>\n    </ul>\n    <a href='https://sentinel-tec.pages.dev' class='button'>Conhecer Nossos Serviços</a>\n    <p>Atenciosamente,<br><strong>Equipe SENTINEL Tecnologia</strong></p>\n  </div>\n  <div class='footer'>\n    <p>SENTINEL Tecnologia | Consultoria em TI, Cloud e Segurança</p>\n    <p>Este email foi enviado automaticamente. Não responda diretamente.</p>\n  </div>\n</body>\n</html>"
+            },
+            "id": "send-welcome-email",
+            "name": "Email de Boas-vindas",
+            "type": "n8n-nodes-base.emailSend",
+            "typeVersion": 2,
+            "position": [
+                1200,
+                300
+            ]
+        }
+    ],
+    "connections": {
+        "Webhook Formspree": {
+            "main": [
+                [
+                    {
+                        "node": "Lead Scoring",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Lead Scoring": {
+            "main": [
+                [
+                    {
+                        "node": "Lead Quente?",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Lead Quente?": {
+            "main": [
+                [
+                    {
+                        "node": "Salvar no Google Sheets",
+                        "type": "main",
+                        "index": 0
+                    },
+                    {
+                        "node": "Alerta WhatsApp",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Salvar no Google Sheets",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Salvar no Google Sheets": {
+            "main": [
+                [
+                    {
+                        "node": "Email de Boas-vindas",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "settings": {
+        "executionOrder": "v1"
+    },
+    "staticData": null,
+    "tags": [
+        {
+            "name": "SENTINEL",
+            "id": "1"
+        },
+        {
+            "name": "Leads",
+            "id": "2"
+        }
+    ],
+    "triggerCount": 1
+}
