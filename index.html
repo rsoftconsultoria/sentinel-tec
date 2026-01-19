@@ -951,7 +951,39 @@
         </svg>
     </a>
 
-    <!-- Crisp.chat - Chatbot 24/7 para atendimento automático -->
+    <!-- Tawk.to - Chatbot 24/7 para atendimento automático -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/696d74ae1090e9198185df96/1jf9ovi9c';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+
+        // Auto-trigger após 30 segundos na página
+        Tawk_API.onLoad = function () {
+            setTimeout(function () {
+                if (typeof Tawk_API.maximize === 'function') {
+                    // Chat pronto para interação
+                }
+            }, 30000);
+        };
+
+        // Rastrear página de interesse para qualificação de leads
+        Tawk_API.onChatStarted = function () {
+            var page = window.location.pathname;
+            if (page.includes('microsoft-365')) {
+                Tawk_API.addTags(['Microsoft 365', 'Licenciamento']);
+            } else if (page.includes('azure') || page.includes('fatura')) {
+                Tawk_API.addTags(['Azure', 'FinOps', 'Lead Quente']);
+            }
+        };
+    </script>
+
+    <!-- Crisp.chat - Chatbot Secundário (backup) -->
     <script type="text/javascript">
         window.$crisp = [];
         window.CRISP_WEBSITE_ID = "5770969e-52d3-4f2e-a17a-2a6334103e38";
@@ -962,16 +994,6 @@
             s.async = 1;
             d.getElementsByTagName("head")[0].appendChild(s);
         })();
-
-        // Rastrear página de interesse para qualificação de leads
-        window.$crisp.push(["on", "session:loaded", function () {
-            var page = window.location.pathname;
-            if (page.includes('microsoft-365')) {
-                window.$crisp.push(["set", "session:segments", [["Microsoft 365", "Licenciamento"]]]);
-            } else if (page.includes('azure') || page.includes('fatura')) {
-                window.$crisp.push(["set", "session:segments", [["Azure", "FinOps", "Lead Quente"]]]);
-            }
-        }]);
     </script>
 
     <!-- Google Analytics (substitua G-XXXXXXXXXX pelo seu ID) -->
