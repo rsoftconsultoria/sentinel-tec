@@ -715,6 +715,20 @@ textarea {
     border-color: var(--color-primary-400);
 }
 
+.service-card__icon--data {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.service-card__icon--data svg {
+    color: #8b5cf6;
+}
+
+.service-card:hover .service-card__icon--data {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-color: transparent;
+}
+
 .service-card__arrow {
     position: absolute;
     top: var(--spacing-6);

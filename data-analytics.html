@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>Data & Analytics | Inteligência de Dados e BI | SENTINEL Tecnologia</title>
+    <meta name="description"
+        content="Transforme seus dados em ativos estratégicos. Arquitetura de dados, Engenharia de Dados, Business Intelligence com Power BI, Databricks e Azure. Consultoria gratuita!">
+    <meta name="keywords"
+        content="data analytics, business intelligence, Power BI, Databricks, Azure Data Factory, engenharia de dados, data lakehouse, ETL, arquitetura de dados, consultoria dados, análise de dados, dashboard, big data">
+    <meta name="author" content="SENTINEL Tecnologia">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://sentinel-tec.pages.dev/data-analytics.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sentinel-tec.pages.dev/data-analytics.html">
+    <meta property="og:title" content="Data & Analytics | Transforme Dados em Decisões | SENTINEL">
+    <meta property="og:description"
+        content="Arquitetura de Dados, Engenharia e Business Intelligence. Databricks, Power BI, Azure. Consultoria gratuita para seu projeto de dados.">
+    <meta property="og:image" content="https://sentinel-tec.pages.dev/og-data-analytics.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="SENTINEL Tecnologia">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Data & Analytics | SENTINEL Tecnologia">
+    <meta name="twitter:description"
+        content="Transforme dados brutos em insights estratégicos. Power BI, Databricks, Azure.">
+    <meta name="twitter:image" content="https://sentinel-tec.pages.dev/og-data-analytics.png">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="msapplication-TileColor" content="#0a0f1c">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=3.0">
+
+    <style>
+        /* Data & Analytics Landing Page Specific Styles */
+        .hero-data {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1f3c 50%, #2d1f4a 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+
+        .hero-data::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Floating data elements */
+        .data-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .data-particle {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: rgba(59, 130, 246, 0.3);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-data__content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 968px) {
+            .hero-data__content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .hero-data__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            color: #60a5fa;
+            margin-bottom: 24px;
+        }
+
+        .hero-data__badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-data__title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-data__title span {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-data__subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .hero-data__features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 968px) {
+            .hero-data__features {
+                justify-content: center;
+            }
+        }
+
+        .hero-data__feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        .hero-data__feature svg {
+            width: 20px;
+            height: 20px;
+            color: #10b981;
+        }
+
+        .hero-data__cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 968px) {
+            .hero-data__cta {
+                justify-content: center;
+            }
+        }
+
+        .btn-primary-data {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-primary-data:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary-data {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-data:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Dashboard visualization */
+        .hero-data__visual {
+            position: relative;
+        }
+
+        .dashboard-mockup {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dashboard-title {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .dashboard-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dashboard-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dashboard-dot--red {
+            background: #ef4444;
+        }
+
+        .dashboard-dot--yellow {
+            background: #f59e0b;
+        }
+
+        .dashboard-dot--green {
+            background: #10b981;
+        }
+
+        .dashboard-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .metric-value--blue {
+            color: #3b82f6;
+        }
+
+        .metric-value--green {
+            color: #10b981;
+        }
+
+        .metric-value--purple {
+            color: #8b5cf6;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .dashboard-chart {
+            height: 150px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 8px;
+            padding-top: 20px;
+        }
+
+        .chart-bar {
+            width: 30px;
+            background: linear-gradient(to top, #3b82f6, #8b5cf6);
+            border-radius: 4px 4px 0 0;
+            animation: growBar 1.5s ease-out forwards;
+            transform-origin: bottom;
+        }
+
+        @keyframes growBar {
+            from {
+                transform: scaleY(0);
+            }
+
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        /* Services Section */
+        .services-data {
+            padding: 100px 0;
+            background: #0a0f1c;
+        }
+
+        .services-data__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .services-data__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-data__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .services-data__subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-data__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-data-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-data-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-data-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-data-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-data-card__icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-data-card__icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #3b82f6;
+        }
+
+        .service-data-card__title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .service-data-card__description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .service-data-card__features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-data-card__features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .service-data-card__features li svg {
+            width: 16px;
+            height: 16px;
+            color: #10b981;
+            flex-shrink: 0;
+        }
+
+        /* Stack Section */
+        .stack-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0a0f1c 0%, #111827 100%);
+        }
+
+        .stack-section__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .stack-section__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .stack-section__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px;
+        }
+
+        .stack-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stack-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .stack-item__icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .stack-item__name {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-data {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1f3c 0%, #2d1f4a 100%);
+            position: relative;
+        }
+
+        .cta-data__container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .cta-data__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cta-data__subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+        }
+
+        .cta-data__benefits {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .cta-benefit {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-benefit svg {
+            width: 24px;
+            height: 24px;
+            color: #10b981;
+        }
+
+        .cta-data__buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Data Particles -->
+    <div class="data-particles" aria-hidden="true">
+        <span class="data-particle" style="left: 10%; animation-delay: 0s;">01101</span>
+        <span class="data-particle" style="left: 25%; animation-delay: 2s;">DATA</span>
+        <span class="data-particle" style="left: 40%; animation-delay: 4s;">10010</span>
+        <span class="data-particle" style="left: 55%; animation-delay: 1s;">BI</span>
+        <span class="data-particle" style="left: 70%; animation-delay: 3s;">11001</span>
+        <span class="data-particle" style="left: 85%; animation-delay: 5s;">ETL</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-data" id="home">
+        <div class="hero-data__content">
+            <div class="hero-data__text">
+                <div class="hero-data__badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 21H4.6c-.6 0-.9 0-1.1-.1-.2-.1-.4-.2-.5-.5-.1-.2-.1-.5-.1-1.1V3" />
+                        <path d="M7 14l4-4 4 4 6-6" />
+                    </svg>
+                    Inteligência de Dados
+                </div>
+
+                <h1 class="hero-data__title">
+                    Transforme Dados em <span>Decisões Estratégicas</span>
+                </h1>
+
+                <p class="hero-data__subtitle">
+                    Atuação especializada na transformação de dados brutos em ativos estratégicos,
+                    abrangendo todo o ciclo de vida da informação: desde a concepção da infraestrutura
+                    até a visualização avançada para tomada de decisão.
+                </p>
+
+                <div class="hero-data__features">
+                    <div class="hero-data__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Data Lakehouse
+                    </div>
+                    <div class="hero-data__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Power BI & Databricks
+                    </div>
+                    <div class="hero-data__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Azure & AWS
+                    </div>
+                </div>
+
+                <div class="hero-data__cta">
+                    <a href="https://wa.me/5521994559564?text=Olá!%20Tenho%20interesse%20em%20Data%20%26%20Analytics"
+                        class="btn-primary-data">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        Consultoria Gratuita
+                    </a>
+                    <a href="index.html" class="btn-secondary-data">
+                        Conhecer todos os serviços
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-data__visual">
+                <div class="dashboard-mockup">
+                    <div class="dashboard-header">
+                        <span class="dashboard-title">📊 Dashboard Analytics</span>
+                        <div class="dashboard-dots">
+                            <span class="dashboard-dot dashboard-dot--red"></span>
+                            <span class="dashboard-dot dashboard-dot--yellow"></span>
+                            <span class="dashboard-dot dashboard-dot--green"></span>
+                        </div>
+                    </div>
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <div class="metric-value metric-value--blue">+47%</div>
+                            <div class="metric-label">Eficiência</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value metric-value--green">2.4TB</div>
+                            <div class="metric-label">Processados</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value metric-value--purple">99.9%</div>
+                            <div class="metric-label">Uptime</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-chart">
+                        <div class="chart-bar" style="height: 60%; animation-delay: 0.1s;"></div>
+                        <div class="chart-bar" style="height: 80%; animation-delay: 0.2s;"></div>
+                        <div class="chart-bar" style="height: 45%; animation-delay: 0.3s;"></div>
+                        <div class="chart-bar" style="height: 95%; animation-delay: 0.4s;"></div>
+                        <div class="chart-bar" style="height: 70%; animation-delay: 0.5s;"></div>
+                        <div class="chart-bar" style="height: 85%; animation-delay: 0.6s;"></div>
+                        <div class="chart-bar" style="height: 55%; animation-delay: 0.7s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-data" id="servicos">
+        <div class="services-data__container">
+            <div class="services-data__header">
+                <h2 class="services-data__title">Serviços Ofertados</h2>
+                <p class="services-data__subtitle">
+                    Soluções completas para todo o ciclo de vida dos dados da sua empresa
+                </p>
+            </div>
+
+            <div class="services-data__grid">
+                <!-- Arquitetura de Dados -->
+                <div class="service-data-card">
+                    <div class="service-data-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <line x1="3" y1="9" x2="21" y2="9" />
+                            <line x1="9" y1="21" x2="9" y2="9" />
+                        </svg>
+                    </div>
+                    <h3 class="service-data-card__title">Arquitetura de Dados</h3>
+                    <p class="service-data-card__description">
+                        Planejamento e implementação de infraestruturas de dados modernas e escaláveis em nuvem
+                        (Cloud Data Platforms). Especialização em arquiteturas Data Lakehouse e estruturação em
+                        camadas (Medallion Architecture - Bronze, Silver, Gold).
+                    </p>
+                    <ul class="service-data-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Data Lakehouse Architecture
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Medallion (Bronze, Silver, Gold)
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Governança e Segurança
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Democratização do Acesso
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Engenharia de Dados -->
+                <div class="service-data-card">
+                    <div class="service-data-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <h3 class="service-data-card__title">Engenharia de Dados</h3>
+                    <p class="service-data-card__description">
+                        Desenvolvimento de pipelines de dados robustos e automatizados. Execução de processos
+                        complexos de ingestão, limpeza e transformação (ETL/ELT), assegurando a integridade
+                        e disponibilidade contínua dos dados.
+                    </p>
+                    <ul class="service-data-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Pipelines ETL/ELT Automatizados
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Ingestão e Transformação
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Data Quality & Cleansing
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Orquestração de Workflows
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Business Intelligence -->
+                <div class="service-data-card">
+                    <div class="service-data-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                        </svg>
+                    </div>
+                    <h3 class="service-data-card__title">Business Intelligence</h3>
+                    <p class="service-data-card__description">
+                        Criação de modelos semânticos e dashboards interativos que traduzem métricas complexas
+                        em visualizações claras. Aplicação de Advanced Analytics e modelagem estatística para
+                        identificação de tendências.
+                    </p>
+                    <ul class="service-data-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Dashboards Power BI
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Modelos Semânticos
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Advanced Analytics
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            KPIs e Métricas Estratégicas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Section -->
+    <section class="stack-section" id="stack">
+        <div class="stack-section__container">
+            <div class="stack-section__header">
+                <h2 class="stack-section__title">Stack Tecnológico</h2>
+            </div>
+
+            <div class="stack-grid">
+                <div class="stack-item">
+                    <div class="stack-item__icon">☁️</div>
+                    <div class="stack-item__name">Microsoft Azure</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">🔶</div>
+                    <div class="stack-item__name">AWS</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">🧱</div>
+                    <div class="stack-item__name">Databricks</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">🔄</div>
+                    <div class="stack-item__name">Azure Data Factory</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">📊</div>
+                    <div class="stack-item__name">Azure Synapse</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">📈</div>
+                    <div class="stack-item__name">Power BI</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">🐍</div>
+                    <div class="stack-item__name">Python</div>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">🗃️</div>
+                    <div class="stack-item__name">SQL Avançado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-data" id="contato">
+        <div class="cta-data__container">
+            <h2 class="cta-data__title">Pronto para Transformar seus Dados?</h2>
+            <p class="cta-data__subtitle">
+                Agende uma consultoria gratuita e descubra como podemos ajudar sua empresa
+                a tomar decisões mais inteligentes baseadas em dados.
+            </p>
+
+            <div class="cta-data__benefits">
+                <div class="cta-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Análise gratuita do cenário
+                </div>
+                <div class="cta-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Proposta personalizada
+                </div>
+                <div class="cta-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Sem compromisso
+                </div>
+            </div>
+
+            <div class="cta-data__buttons">
+                <a href="https://wa.me/5521994559564?text=Olá!%20Gostaria%20de%20agendar%20uma%20consultoria%20sobre%20Data%20%26%20Analytics"
+                    class="btn-primary-data">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Falar pelo WhatsApp
+                </a>
+                <a href="index.html#contato" class="btn-secondary-data">
+                    Formulário de Contato
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #0a0f1c; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <a href="index.html" style="color: #fff; font-weight: 700; font-size: 1.5rem; text-decoration: none;">
+                🛡️ SENTINEL Tecnologia
+            </a>
+            <p style="color: rgba(255,255,255,0.5); margin-top: 20px; font-size: 14px;">
+                © 2026 SENTINEL Tecnologia. Todos os direitos reservados.
+            </p>
+            <div style="margin-top: 20px;">
+                <a href="index.html"
+                    style="color: rgba(255,255,255,0.7); margin: 0 15px; text-decoration: none; font-size: 14px;">Início</a>
+                <a href="index.html#servicos"
+                    style="color: rgba(255,255,255,0.7); margin: 0 15px; text-decoration: none; font-size: 14px;">Serviços</a>
+                <a href="sobre.html"
+                    style="color: rgba(255,255,255,0.7); margin: 0 15px; text-decoration: none; font-size: 14px;">Sobre</a>
+                <a href="index.html#contato"
+                    style="color: rgba(255,255,255,0.7); margin: 0 15px; text-decoration: none; font-size: 14px;">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5521994559564?text=Olá!%20Vim%20pela%20página%20de%20Data%20%26%20Analytics"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+</body>
+
+</html>
