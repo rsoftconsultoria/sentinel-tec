@@ -1,0 +1,2 @@
+# Deploy Trigger
+Trigger deploy after Cloudflare reconnection.
