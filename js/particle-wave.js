@@ -1,41 +1,64 @@
 /**
  * SENTINEL Particle Wave Animation
- * 3D Grid Wave Effect using Three.js
- * Inspired by 3structure.com.br
+ * Exact replication of 3structure.com.br effect
+ * Using their exact parameters
  */
 
-(function() {
+(function () {
     'use strict';
 
-    // Configuration
+    // Configuration - Exact 3structure parameters
     const CONFIG = {
-        particleCount: 15000,
-        gridWidth: 180,
-        gridHeight: 100,
-        waveSpeed: 0.0008,
-        waveAmplitude: 3,
-        waveFrequency: 0.15,
-        rotationX: 1.2,  // Tilt angle
-        cameraZ: 50,
-        particleSize: 1.5,
-        mouseInfluence: 0.00008,
-        colorStart: { r: 0.1, g: 0.4, b: 0.9 },  // Blue
-        colorEnd: { r: 0.6, g: 0.2, b: 0.9 }     // Purple
+        particleAmount: 10000,
+        gridGap: 30,
+        speed: 0.3,
+        amplitude: 0.2,
+        complexity: 0.4,
+        tiltDeg: 15,
+        scaleY: 10,
+        scaleZ: -20,
+        // Colors from 3structure: cyan-blue gradient
+        colorStops: [
+            { pos: 0.05, r: 0, g: 92, b: 145 },      // Cyan-blue at 5%
+            { pos: 0.24, r: 3, g: 74, b: 125 },      // Darker blue at 24%
+            { pos: 1.00, r: 15, g: 0, b: 43 }        // Deep purple/black at 100%
+        ]
     };
 
-    let container, camera, scene, renderer, particles;
+    let container, camera, scene, renderer, gridMesh;
     let mouseX = 0, mouseY = 0;
-    let windowHalfX, windowHalfY;
     let animationId;
     let clock;
 
-    // Check if Three.js is loaded
     function waitForThree(callback) {
         if (typeof THREE !== 'undefined') {
             callback();
         } else {
             setTimeout(() => waitForThree(callback), 100);
         }
+    }
+
+    function lerp(a, b, t) {
+        return a + (b - a) * t;
+    }
+
+    function getColorAtPosition(t) {
+        const stops = CONFIG.colorStops;
+
+        // Find the two stops to interpolate between
+        for (let i = 0; i < stops.length - 1; i++) {
+            if (t >= stops[i].pos && t <= stops[i + 1].pos) {
+                const localT = (t - stops[i].pos) / (stops[i + 1].pos - stops[i].pos);
+                return {
+                    r: lerp(stops[i].r, stops[i + 1].r, localT) / 255,
+                    g: lerp(stops[i].g, stops[i + 1].g, localT) / 255,
+                    b: lerp(stops[i].b, stops[i + 1].b, localT) / 255
+                };
+            }
+        }
+        // Default to last color
+        const last = stops[stops.length - 1];
+        return { r: last.r / 255, g: last.g / 255, b: last.b / 255 };
     }
 
     function init() {
@@ -45,70 +68,63 @@
             return;
         }
 
-        // Get container dimensions
         const rect = container.getBoundingClientRect();
-        windowHalfX = rect.width / 2;
-        windowHalfY = rect.height / 2;
-
-        // Clock for animation timing
         clock = new THREE.Clock();
 
-        // Camera setup
-        camera = new THREE.PerspectiveCamera(75, rect.width / rect.height, 1, 1000);
-        camera.position.z = CONFIG.cameraZ;
+        // Camera setup - perspective matching 3structure
+        camera = new THREE.PerspectiveCamera(60, rect.width / rect.height, 1, 2000);
+        camera.position.set(0, 80, 120);
+        camera.lookAt(0, 0, 0);
 
-        // Scene setup
         scene = new THREE.Scene();
 
-        // Create particle geometry
+        // Create grid geometry - boxes style like 3structure
+        const gridWidth = 200;
+        const gridHeight = 100;
+        const spacing = 2;
+
         const positions = [];
         const colors = [];
-        const originalPositions = [];
-
-        const gridWidth = CONFIG.gridWidth;
-        const gridHeight = CONFIG.gridHeight;
-        const spacing = 1.2;
 
         for (let i = 0; i < gridWidth; i++) {
             for (let j = 0; j < gridHeight; j++) {
                 const x = (i - gridWidth / 2) * spacing;
-                const y = (j - gridHeight / 2) * spacing;
-                const z = 0;
+                const z = (j - gridHeight / 2) * spacing;
+                const y = 0;
 
                 positions.push(x, y, z);
-                originalPositions.push(x, y, z);
 
-                // Color gradient based on position
-                const t = (i / gridWidth + j / gridHeight) / 2;
-                const r = CONFIG.colorStart.r + (CONFIG.colorEnd.r - CONFIG.colorStart.r) * t;
-                const g = CONFIG.colorStart.g + (CONFIG.colorEnd.g - CONFIG.colorStart.g) * t;
-                const b = CONFIG.colorStart.b + (CONFIG.colorEnd.b - CONFIG.colorStart.b) * t;
-
-                colors.push(r, g, b);
+                // Color based on radial distance from center (like radial-gradient)
+                const dist = Math.sqrt(x * x + z * z) / (gridWidth * spacing * 0.5);
+                const color = getColorAtPosition(Math.min(dist, 1));
+                colors.push(color.r, color.g, color.b);
             }
         }
 
         const geometry = new THREE.BufferGeometry();
         geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
         geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+        // Store original positions for animation
+        const originalPositions = new Float32Array(positions);
         geometry.setAttribute('originalPosition', new THREE.Float32BufferAttribute(originalPositions, 3));
 
-        // Shader material for better performance and visual
+        // Shader material for the grid - box/square points
         const material = new THREE.ShaderMaterial({
             uniforms: {
                 time: { value: 0 },
-                size: { value: CONFIG.particleSize * window.devicePixelRatio },
-                waveAmplitude: { value: CONFIG.waveAmplitude },
-                waveFrequency: { value: CONFIG.waveFrequency }
+                amplitude: { value: CONFIG.amplitude * 40 },
+                speed: { value: CONFIG.speed },
+                complexity: { value: CONFIG.complexity }
             },
             vertexShader: `
                 uniform float time;
-                uniform float size;
-                uniform float waveAmplitude;
-                uniform float waveFrequency;
+                uniform float amplitude;
+                uniform float speed;
+                uniform float complexity;
                 
-                attribute vec3 originalPosition;
                 attribute vec3 color;
+                attribute vec3 originalPosition;
                 
                 varying vec3 vColor;
                 varying float vAlpha;
@@ -118,22 +134,22 @@
                     
                     vec3 pos = originalPosition;
                     
-                    // Multiple wave layers for organic movement
-                    float wave1 = sin(pos.x * waveFrequency + time * 2.0) * waveAmplitude;
-                    float wave2 = cos(pos.y * waveFrequency * 0.8 + time * 1.5) * waveAmplitude * 0.7;
-                    float wave3 = sin((pos.x + pos.y) * waveFrequency * 0.5 + time) * waveAmplitude * 0.5;
+                    // Wave animation - multiple sine waves for complexity
+                    float wave1 = sin(pos.x * 0.05 * complexity + time * speed * 2.0) * amplitude;
+                    float wave2 = sin(pos.z * 0.08 * complexity + time * speed * 1.5) * amplitude * 0.6;
+                    float wave3 = cos((pos.x + pos.z) * 0.03 * complexity + time * speed) * amplitude * 0.4;
                     
-                    pos.z = wave1 + wave2 + wave3;
+                    pos.y = wave1 + wave2 + wave3;
                     
-                    // Fade based on distance from center
-                    float dist = length(pos.xy) / 60.0;
-                    vAlpha = smoothstep(1.0, 0.3, dist);
+                    // Alpha based on radial distance
+                    float dist = length(pos.xz) / 150.0;
+                    vAlpha = smoothstep(1.2, 0.2, dist);
                     
                     vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
                     gl_Position = projectionMatrix * mvPosition;
                     
-                    // Size attenuation
-                    gl_PointSize = size * (300.0 / -mvPosition.z);
+                    // Square point size - boxes style
+                    gl_PointSize = 3.0 * (200.0 / -mvPosition.z);
                 }
             `,
             fragmentShader: `
@@ -141,18 +157,17 @@
                 varying float vAlpha;
                 
                 void main() {
-                    // Create soft circular point
-                    vec2 center = gl_PointCoord - vec2(0.5);
-                    float dist = length(center);
+                    // Square points (boxes) - no circular masking
+                    vec2 uv = gl_PointCoord * 2.0 - 1.0;
                     
-                    if (dist > 0.5) discard;
+                    // Slight softness at edges for glow
+                    float edge = max(abs(uv.x), abs(uv.y));
+                    float alpha = smoothstep(1.0, 0.7, edge) * vAlpha;
                     
-                    float alpha = smoothstep(0.5, 0.0, dist) * vAlpha * 0.8;
+                    // Brighter center glow
+                    vec3 glowColor = vColor * 1.5;
                     
-                    // Glow effect
-                    vec3 glow = vColor * 1.5;
-                    
-                    gl_FragColor = vec4(glow, alpha);
+                    gl_FragColor = vec4(glowColor, alpha * 0.9);
                 }
             `,
             transparent: true,
@@ -160,11 +175,14 @@
             depthWrite: false
         });
 
-        particles = new THREE.Points(geometry, material);
-        particles.rotation.x = CONFIG.rotationX;
-        scene.add(particles);
+        gridMesh = new THREE.Points(geometry, material);
 
-        // Renderer setup
+        // Apply tilt - 15 degrees like 3structure
+        gridMesh.rotation.x = THREE.MathUtils.degToRad(CONFIG.tiltDeg + 60);
+
+        scene.add(gridMesh);
+
+        // Renderer
         renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true
@@ -174,29 +192,25 @@
         renderer.setClearColor(0x000000, 0);
         container.appendChild(renderer.domElement);
 
-        // Event listeners
+        // Events
         document.addEventListener('mousemove', onMouseMove);
         window.addEventListener('resize', onWindowResize);
 
-        // Start animation
         animate();
     }
 
     function onMouseMove(event) {
-        mouseX = (event.clientX - windowHalfX) * CONFIG.mouseInfluence;
-        mouseY = (event.clientY - windowHalfY) * CONFIG.mouseInfluence;
+        const rect = container.getBoundingClientRect();
+        mouseX = ((event.clientX - rect.left) / rect.width - 0.5) * 0.1;
+        mouseY = ((event.clientY - rect.top) / rect.height - 0.5) * 0.1;
     }
 
     function onWindowResize() {
         if (!container || !camera || !renderer) return;
 
         const rect = container.getBoundingClientRect();
-        windowHalfX = rect.width / 2;
-        windowHalfY = rect.height / 2;
-
         camera.aspect = rect.width / rect.height;
         camera.updateProjectionMatrix();
-
         renderer.setSize(rect.width, rect.height);
     }
 
@@ -205,25 +219,20 @@
 
         const time = clock.getElapsedTime();
 
-        // Update shader time uniform
-        if (particles && particles.material.uniforms) {
-            particles.material.uniforms.time.value = time;
+        if (gridMesh && gridMesh.material.uniforms) {
+            gridMesh.material.uniforms.time.value = time;
         }
 
-        // Smooth camera movement based on mouse
-        if (particles) {
-            particles.rotation.y += (mouseX - particles.rotation.y) * 0.05;
-            particles.rotation.x += (-mouseY + CONFIG.rotationX - particles.rotation.x) * 0.05;
+        // Subtle mouse interaction
+        if (gridMesh) {
+            gridMesh.rotation.y += (mouseX * 0.5 - gridMesh.rotation.y) * 0.02;
         }
 
         renderer.render(scene, camera);
     }
 
     function destroy() {
-        if (animationId) {
-            cancelAnimationFrame(animationId);
-        }
-        
+        if (animationId) cancelAnimationFrame(animationId);
         document.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('resize', onWindowResize);
 
@@ -234,22 +243,17 @@
             }
         }
 
-        if (particles) {
-            particles.geometry.dispose();
-            particles.material.dispose();
+        if (gridMesh) {
+            gridMesh.geometry.dispose();
+            gridMesh.material.dispose();
         }
     }
 
-    // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => waitForThree(init));
     } else {
         waitForThree(init);
     }
 
-    // Export for potential external use
-    window.ParticleWave = {
-        init: init,
-        destroy: destroy
-    };
+    window.ParticleWave = { init, destroy };
 })();

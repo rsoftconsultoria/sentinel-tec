@@ -95,7 +95,10 @@
     </header>
 
     <!-- Hero Section - Sobre -->
-    <section class="sobre-hero" id="quem-somos">
+    <section class="sobre-hero hero" id="quem-somos">
+        <!-- 3D Particle Wave Background -->
+        <div id="particle-wave-canvas" class="particle-wave-bg"></div>
+
         <div class="hero__glow hero__glow--left"></div>
         <div class="hero__glow hero__glow--right"></div>
 
@@ -360,6 +363,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Three.js for 3D animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Particle Wave Animation -->
+    <script src="js/particle-wave.js"></script>
 
     <!-- Scripts -->
     <script src="script.js"></script>
