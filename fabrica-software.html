@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>Fábrica de Software & Automação IA | Agentes, n8n, Workflows | SENTINEL Tecnologia</title>
+    <meta name="description"
+        content="Desenvolva agentes de IA, workflows automatizados com n8n, robôs inteligentes e automação de processos 24/7. Transforme operações manuais em processos automáticos. Consultoria gratuita!">
+    <meta name="keywords"
+        content="automação IA, agentes de IA, n8n, workflows automatizados, robôs inteligentes, automação de processos, RPA, inteligência artificial, fábrica de software, automação 24/7, chatbot, integração sistemas">
+    <meta name="author" content="SENTINEL Tecnologia">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://www.sentineltec.com.br/fabrica-software.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sentineltec.com.br/fabrica-software.html">
+    <meta property="og:title" content="Fábrica de Software & Automação IA | Agentes Inteligentes | SENTINEL">
+    <meta property="og:description"
+        content="Agentes de IA, workflows n8n, robôs inteligentes e automação 24/7. Transforme operações manuais em processos automáticos.">
+    <meta property="og:image" content="https://www.sentineltec.com.br/og-image.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="SENTINEL Tecnologia">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fábrica de Software & Automação IA | SENTINEL Tecnologia">
+    <meta name="twitter:description" content="Agentes de IA, workflows n8n, robôs inteligentes e automação 24/7.">
+    <meta name="twitter:image" content="https://www.sentineltec.com.br/og-image.png">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="msapplication-TileColor" content="#0a0f1c">
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=4.0">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P63VSBCF');</script>
+    <!-- End Google Tag Manager -->
+
+    <style>
+        /* Fábrica de Software & Automação IA Landing Page Styles */
+        .hero-automation {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1f3c 50%, #2d1f4a 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+
+        .hero-automation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Floating automation elements */
+        .automation-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .automation-particle {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: rgba(139, 92, 246, 0.3);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-automation__content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 968px) {
+            .hero-automation__content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .hero-automation__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            color: #a78bfa;
+            margin-bottom: 24px;
+        }
+
+        .hero-automation__badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-automation__title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-automation__title span {
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-automation__subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .hero-automation__features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 968px) {
+            .hero-automation__features {
+                justify-content: center;
+            }
+        }
+
+        .hero-automation__feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        .hero-automation__feature svg {
+            width: 20px;
+            height: 20px;
+            color: #10b981;
+        }
+
+        .hero-automation__cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 968px) {
+            .hero-automation__cta {
+                justify-content: center;
+            }
+        }
+
+        .btn-primary-automation {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-primary-automation:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-secondary-automation {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-automation:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Automation visualization */
+        .hero-automation__visual {
+            position: relative;
+        }
+
+        .automation-mockup {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .automation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .automation-title {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .automation-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .automation-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .automation-dot--red {
+            background: #ef4444;
+        }
+
+        .automation-dot--yellow {
+            background: #f59e0b;
+        }
+
+        .automation-dot--green {
+            background: #10b981;
+        }
+
+        /* Workflow visualization */
+        .workflow-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 20px 0;
+        }
+
+        .workflow-node {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            animation: pulseNode 2s ease-in-out infinite alternate;
+        }
+
+        .workflow-node:nth-child(2) {
+            animation-delay: 0.5s;
+            margin-left: 40px;
+        }
+
+        .workflow-node:nth-child(3) {
+            animation-delay: 1s;
+            margin-left: 80px;
+        }
+
+        @keyframes pulseNode {
+            0% {
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.2);
+            }
+
+            100% {
+                box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.1);
+            }
+        }
+
+        .workflow-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .workflow-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: #fff;
+        }
+
+        .workflow-text {
+            flex: 1;
+        }
+
+        .workflow-label {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .workflow-desc {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+        }
+
+        .workflow-arrow {
+            color: #8b5cf6;
+            font-size: 20px;
+            text-align: center;
+            margin: 8px 0 8px 20px;
+        }
+
+        /* Services Section */
+        .services-automation {
+            padding: 100px 0;
+            background: #0a0f1c;
+        }
+
+        .services-automation__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .services-automation__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-automation__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .services-automation__subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-automation__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-automation-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-automation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6, #10b981);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-automation-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-automation-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-automation-card__icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-automation-card__icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #8b5cf6;
+        }
+
+        .service-automation-card__title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .service-automation-card__description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .service-automation-card__features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-automation-card__features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .service-automation-card__features li svg {
+            width: 16px;
+            height: 16px;
+            color: #10b981;
+            flex-shrink: 0;
+        }
+
+        /* Use Cases Section */
+        .usecases-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0a0f1c 0%, #111827 100%);
+        }
+
+        .usecases-section__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .usecases-section__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .usecases-section__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .usecase-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .usecase-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .usecase-item__icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .usecase-item__name {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Stack Section */
+        .stack-section {
+            padding: 100px 0;
+            background: #0a0f1c;
+        }
+
+        .stack-section__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .stack-section__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .stack-section__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px;
+        }
+
+        .stack-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stack-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .stack-item__icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .stack-item__name {
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-automation {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1f3c 0%, #2d1f4a 100%);
+            position: relative;
+        }
+
+        .cta-automation__container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .cta-automation__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cta-automation__subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+        }
+
+        .cta-automation__benefits {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .cta-benefit {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-benefit svg {
+            width: 24px;
+            height: 24px;
+            color: #10b981;
+        }
+
+        .cta-automation__buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P63VSBCF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Floating Automation Particles -->
+    <div class="automation-particles" aria-hidden="true">
+        <span class="automation-particle" style="left: 10%; animation-delay: 0s;">🤖</span>
+        <span class="automation-particle" style="left: 25%; animation-delay: 2s;">⚡</span>
+        <span class="automation-particle" style="left: 40%; animation-delay: 4s;">🔄</span>
+        <span class="automation-particle" style="left: 55%; animation-delay: 1s;">🧠</span>
+        <span class="automation-particle" style="left: 70%; animation-delay: 3s;">⚙️</span>
+        <span class="automation-particle" style="left: 85%; animation-delay: 5s;">🚀</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-automation" id="home">
+        <div class="hero-automation__content">
+            <div class="hero-automation__text">
+                <div class="hero-automation__badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                            d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                    </svg>
+                    Automação Inteligente & IA
+                </div>
+
+                <h1 class="hero-automation__title">
+                    Transforme seu Negócio com <span>Agentes de IA</span> e Automação
+                </h1>
+
+                <p class="hero-automation__subtitle">
+                    Desenvolvemos robôs inteligentes, workflows automatizados e agentes de IA
+                    que trabalham 24/7 para otimizar seus processos. Elimine tarefas repetitivas
+                    e libere sua equipe para o que realmente importa.
+                </p>
+
+                <div class="hero-automation__features">
+                    <div class="hero-automation__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Workflows n8n
+                    </div>
+                    <div class="hero-automation__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Agentes de IA
+                    </div>
+                    <div class="hero-automation__feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Operação 24/7
+                    </div>
+                </div>
+
+                <div class="hero-automation__cta">
+                    <a href="https://wa.me/5521994559564?text=Olá!%20Tenho%20interesse%20em%20Automação%20e%20Agentes%20de%20IA"
+                        class="btn-primary-automation">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"
+                            height="20">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                        Fale com Especialistas
+                    </a>
+                    <a href="index.html" class="btn-secondary-automation">
+                        Conhecer todos os serviços
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-automation__visual">
+                <div class="automation-mockup">
+                    <div class="automation-header">
+                        <span class="automation-title">🔄 Workflow Automatizado</span>
+                        <div class="automation-dots">
+                            <span class="automation-dot automation-dot--red"></span>
+                            <span class="automation-dot automation-dot--yellow"></span>
+                            <span class="automation-dot automation-dot--green"></span>
+                        </div>
+                    </div>
+                    <div class="workflow-visual">
+                        <div class="workflow-node">
+                            <div class="workflow-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div class="workflow-text">
+                                <div class="workflow-label">Novo Lead</div>
+                                <div class="workflow-desc">Captura automática</div>
+                            </div>
+                        </div>
+                        <div class="workflow-arrow">↓</div>
+                        <div class="workflow-node">
+                            <div class="workflow-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83" />
+                                </svg>
+                            </div>
+                            <div class="workflow-text">
+                                <div class="workflow-label">Agente IA</div>
+                                <div class="workflow-desc">Análise e qualificação</div>
+                            </div>
+                        </div>
+                        <div class="workflow-arrow">↓</div>
+                        <div class="workflow-node">
+                            <div class="workflow-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                            </div>
+                            <div class="workflow-text">
+                                <div class="workflow-label">Ação Automática</div>
+                                <div class="workflow-desc">CRM + Notificação</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-automation" id="servicos">
+        <div class="services-automation__container">
+            <div class="services-automation__header">
+                <h2 class="services-automation__title">Soluções de Automação</h2>
+                <p class="services-automation__subtitle">
+                    Da concepção à implementação de workflows inteligentes para sua empresa
+                </p>
+            </div>
+
+            <div class="services-automation__grid">
+                <!-- Agentes de IA -->
+                <div class="service-automation-card">
+                    <div class="service-automation-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                        </svg>
+                    </div>
+                    <h3 class="service-automation-card__title">Agentes de IA</h3>
+                    <p class="service-automation-card__description">
+                        Desenvolvemos agentes inteligentes que aprendem, decidem e executam tarefas
+                        automaticamente. Chatbots, assistentes virtuais e sistemas autônomos.
+                    </p>
+                    <ul class="service-automation-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Chatbots Inteligentes
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Assistentes Virtuais
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Machine Learning Aplicado
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Workflows n8n -->
+                <div class="service-automation-card">
+                    <div class="service-automation-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <h3 class="service-automation-card__title">Workflows n8n</h3>
+                    <p class="service-automation-card__description">
+                        Automação de processos com n8n, conectando seus sistemas e eliminando
+                        trabalho manual. Integração com +400 aplicativos e APIs.
+                    </p>
+                    <ul class="service-automation-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            +400 Integrações
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Webhooks e APIs REST
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Self-hosted ou Cloud
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Robôs e RPA -->
+                <div class="service-automation-card">
+                    <div class="service-automation-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="10" rx="2" />
+                            <circle cx="12" cy="5" r="4" />
+                        </svg>
+                    </div>
+                    <h3 class="service-automation-card__title">Robôs e RPA</h3>
+                    <p class="service-automation-card__description">
+                        Robotic Process Automation para tarefas repetitivas. Robôs que operam
+                        24/7 em sistemas legados, ERPs e aplicações web.
+                    </p>
+                    <ul class="service-automation-card__features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Automação Desktop
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Web Scraping Inteligente
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Integração com ERPs
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="usecases-section" id="casos">
+        <div class="usecases-section__container">
+            <div class="usecases-section__header">
+                <h2 class="usecases-section__title">Casos de Uso</h2>
+            </div>
+
+            <div class="usecases-grid">
+                <div class="usecase-item">
+                    <div class="usecase-item__icon">📧</div>
+                    <span class="usecase-item__name">Captura de Leads</span>
+                </div>
+                <div class="usecase-item">
+                    <div class="usecase-item__icon">📊</div>
+                    <span class="usecase-item__name">Relatórios Automáticos</span>
+                </div>
+                <div class="usecase-item">
+                    <div class="usecase-item__icon">🔔</div>
+                    <span class="usecase-item__name">Alertas e Notificações</span>
+                </div>
+                <div class="usecase-item">
+                    <div class="usecase-item__icon">💼</div>
+                    <span class="usecase-item__name">Onboarding de Clientes</span>
+                </div>
+                <div class="usecase-item">
+                    <div class="usecase-item__icon">📝</div>
+                    <span class="usecase-item__name">Processamento de Docs</span>
+                </div>
+                <div class="usecase-item">
+                    <div class="usecase-item__icon">🤖</div>
+                    <span class="usecase-item__name">Atendimento 24/7</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Section -->
+    <section class="stack-section" id="tecnologias">
+        <div class="stack-section__container">
+            <div class="stack-section__header">
+                <h2 class="stack-section__title">Tecnologias Utilizadas</h2>
+            </div>
+
+            <div class="stack-grid">
+                <div class="stack-item">
+                    <div class="stack-item__icon">🔄</div>
+                    <span class="stack-item__name">n8n</span>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">🧠</div>
+                    <span class="stack-item__name">OpenAI GPT</span>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">🐍</div>
+                    <span class="stack-item__name">Python</span>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">☁️</div>
+                    <span class="stack-item__name">Azure AI</span>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">🔗</div>
+                    <span class="stack-item__name">LangChain</span>
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__icon">⚡</div>
+                    <span class="stack-item__name">Node.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-automation" id="contato">
+        <div class="cta-automation__container">
+            <h2 class="cta-automation__title">Pronto para Automatizar?</h2>
+            <p class="cta-automation__subtitle">
+                Agende uma consultoria gratuita e descubra como a automação pode transformar sua operação.
+            </p>
+
+            <div class="cta-automation__benefits">
+                <div class="cta-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    POC Gratuita
+                </div>
+                <div class="cta-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    ROI Garantido
+                </div>
+                <div class="cta-benefit">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Suporte Especializado
+                </div>
+            </div>
+
+            <div class="cta-automation__buttons">
+                <a href="https://wa.me/5521994559564?text=Olá!%20Quero%20saber%20mais%20sobre%20Automação%20e%20IA"
+                    class="btn-primary-automation">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Falar pelo WhatsApp
+                </a>
+                <a href="index.html#contato" class="btn-secondary-automation">
+                    Enviar Formulário
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5521994559564?text=Olá! Vim pelo site SENTINEL e gostaria de saber mais sobre Automação e IA."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contato via WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+
+        // Track CTA clicks for conversion
+        document.querySelectorAll('.btn-primary-automation').forEach(btn => {
+            btn.addEventListener('click', function () {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'Automation',
+                    'event_label': 'Fabrica Software CTA'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
